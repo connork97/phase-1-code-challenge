@@ -4,10 +4,10 @@
 Create Basic HTML Structure - COMPLETE
 Fill it in with Divs/Forms/Title/etc - COMPLETE
 Little CSS
-Fetch JavaScript Data and Render On Page (randomly)
-Add Buttons to Render New Joke
+Fetch JavaScript Data and Render On Page (randomly) - COMPLETE (for two liners)
+Add Buttons to Render New Joke - COMPLETE (for two liners)
 Add Function to Hide Punch Line for Two Liners
-Reveal Punchline Button/Hover/whatever
+Reveal Punchline Button/Hover/whatever - COMPLETE
 Add Upvote/DownVote Buttons
 Add Bookmark Button
 Add Joke Submission Form
