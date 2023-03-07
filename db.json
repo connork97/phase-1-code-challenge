@@ -1,0 +1,55 @@
+{
+  "bookmarkedJokes": [
+    {
+      "category": "Programming",
+      "setup": "Why did the programmer jump on the table?",
+      "delivery": "Because debug was on his screen.",
+      "id": 1
+    },
+    {
+      "category": "Spooky",
+      "setup": "What's it like to be kissed by a vampire?",
+      "delivery": "It's a pain in the neck.",
+      "id": 2
+    },
+    {
+      "category": "Pun",
+      "setup": "What kind of doctor is Dr. Pepper?",
+      "delivery": "He's a fizzician.",
+      "id": 3
+    },
+    {
+      "category": "Pun",
+      "setup": "I was feeling depressed, my wife put her hand on my back and said \"Earth.\"",
+      "delivery": "It meant the world to me.",
+      "id": 4
+    },
+    {
+      "category": "Programming",
+      "setup": "What do you call a developer who doesn't comment code?",
+      "delivery": "A developer.",
+      "id": 5
+    },
+    {
+      "category": "Programming",
+      "setup": "So what's a set of predefined steps the government might take to preserve the environment?",
+      "delivery": "An Al-Gore-ithm.",
+      "id": 6
+    },
+    {
+      "category": "Programming",
+      "setup": "What do you call a developer who doesn't comment code?",
+      "delivery": "A developer.",
+      "id": 7
+    }
+  ],
+  "userJokes": [
+    {
+      "name": "Connor",
+      "category": "Knock Knock",
+      "setup": "Knock knock",
+      "delivery": "Is there an owl in here",
+      "id": 1
+    }
+  ]
+}

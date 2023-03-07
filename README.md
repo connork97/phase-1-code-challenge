@@ -8,9 +8,9 @@ Fetch JavaScript Data and Render On Page (randomly) - COMPLETE (for two liners)
 Add Buttons to Render New Joke - COMPLETE (for two liners)
 Add Function to Hide Punch Line for Two Liners
 Reveal Punchline Button/Hover/whatever - COMPLETE
-Add Upvote/DownVote Buttons
-Add Bookmark Button
-Add Joke Submission Form
+Add Upvote/DownVote Buttons - COMPLETE
+Add Bookmark Button - COMPLETE
+Add Joke Submission Form - COMPLETE (for two liners)
     -Name
     -Setup
     -Punchline
