@@ -1,5 +1,7 @@
 const JOKE_URL = "https://v2.jokeapi.dev/joke/";
 const LOCAL_URL = "http://localhost:3000/";
+const BOOKMARK_URL = "http://localhost:3000/bookmarkedJokes"
+const USER_URL = "http://localhost:3000/userJokes";
 
 // Global Variables
 
@@ -123,8 +125,60 @@ const postUserJoke = (userJokePost) => {
     .catch((error) => console.error(error))
 }
 
+// Sort Through By Category
+const jokeLibraryDiv = document.getElementById('joke-library');
+const bookmarkDropdown = document.getElementById('joke-dropdown');
+const jokeLibDiv = document.getElementById('joke-library-display');
+
+let bookmarks = [];
+
+const filterBookmarks = (category, bookmarksArray) => {
+    return bookmarksArray.filter((bookmark) => {
+        return bookmark === category;
+    })
+}
+
+
+bookmarkDropdown.addEventListener('change', (event) => {
+    console.log(event.target.value);
+    const filteredBookmarks = filterBookmarks(event.target.value, bookmarks);
+    filteredBookmarks.forEach((bookmark) => {
+        displayBookmarks(bookmark);
+    })
+})
+
+const displayBookmarks = (bookmark) => {
+    const newBookmarkDiv = document.createElement('div');
+    const bookmarkCat = document.createElement('p');
+    bookmarkCat.textContent = bookmark.category;
+    const bookmarkSetup = document.createElement('p');
+    bookmarkSetup.textContent = bookmark.setup;
+    const bookmarkPunchline = document.createElement('p');
+    bookmarkPunchline = bookmark.delivery;
+    newBookmarkDiv.appendChild(bookmarkCat, bookmarkSetup, bookmarkPunchline);
+    jokeLibDiv.appendChild(newBookmarkDiv);
+}
+
+const fetchBookmarkCat = () => {
+    fetch(BOOKMARK_URL)
+    .then((response) => response.json())
+    .then((bookmarkArr) => {
+        console.log(bookmarkArr);
+        console.log(bookmarkArr[0]);
+        console.log(bookmarkArr[0].category);
+        bookmarkArr.forEach((bookmarkObj) => {
+            bookmarks.push(bookmarkObj);
+            console.log(bookmarks)
+        })
+    })
+}
+
+
+
+
 const init = () => {
     fetchJoke();
+    fetchBookmarkCat();
 }
 
 init();

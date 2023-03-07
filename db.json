@@ -41,6 +41,12 @@
       "setup": "What do you call a developer who doesn't comment code?",
       "delivery": "A developer.",
       "id": 7
+    },
+    {
+      "category": "Spooky",
+      "setup": "What does a turkey dress up as for Halloween?",
+      "delivery": "A gobblin'!",
+      "id": 8
     }
   ],
   "userJokes": [
