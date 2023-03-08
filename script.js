@@ -81,19 +81,41 @@ newJokeForm.addEventListener('submit', (event) => {
 // Like/Dislike/Bookmark Functions
 
 likeBtn.addEventListener('click', () => {
-    let totalLikes = Number(likeCounter.textContent);
-    totalLikes += 1;
-    likeCounter.textContent = Number(totalLikes);
-    likeBtn.classList.add("clicked", "fa-solid");
-    createNewLike();
+    if(likeBtn.classList.contains("clicked") === false && dislikeBtn.classList.contains("clicked") === true) {
+        let totalLikes = Number(likeCounter.textContent);
+        totalLikes += 2;
+        likeCounter.textContent = Number(totalLikes);
+        likeBtn.classList.add("clicked", "fa-solid");
+        dislikeBtn.classList.remove("clicked", "fa-solid"); 
+        createNewLike();
+    } else if(likeBtn.classList.contains("clicked") === false){
+        let totalLikes = Number(likeCounter.textContent);
+        totalLikes += 1;
+        likeCounter.textContent = Number(totalLikes);
+        likeBtn.classList.add("clicked", "fa-solid");   
+        createNewLike();
+    } else {
+        window.alert("You've already liked this post!");
+    }
 })
 
 dislikeBtn.addEventListener('click', () => {
-    let totalLikes = Number(likeCounter.textContent);
-    totalLikes -= 1;
-    likeCounter.textContent = Number(totalLikes);
-    dislikeBtn.classList.add("clicked", "fa-solid");   
-    createNewLike();
+    if(dislikeBtn.classList.contains("clicked") === false && likeBtn.classList.contains("clicked") === true) {
+        let totalLikes = Number(likeCounter.textContent);
+        totalLikes -= 2;
+        likeCounter.textContent = Number(totalLikes);
+        dislikeBtn.classList.add("clicked", "fa-solid");
+        likeBtn.classList.remove("clicked", "fa-solid"); 
+        createNewLike();
+    } else if(dislikeBtn.classList.contains("clicked") === false){
+        let totalLikes = Number(likeCounter.textContent);
+        totalLikes -= 1;
+        likeCounter.textContent = Number(totalLikes);
+        dislikeBtn.classList.add("clicked", "fa-solid");   
+        createNewLike();
+    }  else {
+        window.alert("You've already disliked this joke.");
+    }
 })
 
 const createNewLike = () => {
@@ -105,15 +127,21 @@ const createNewLike = () => {
 }
 
 bookmarkBtn.addEventListener('click', () => {
+    if(bookmarkBtn.classList.contains("clicked") === false){
     const bookmarkedJoke = {
         category: jokeCat.textContent,
         setup: jokeSetup.textContent,
         delivery: jokePunchline.textContent,
         destination: "bookmarkedJokes/1"
+        }
+        postJoke(bookmarkedJoke);
+        bookmarkBtn.classList.add("clicked", "fa-solid", "gold");
+        setTimeout(() => {
+            window.alert("Joke saved to your library!");
+        }, 1000);
+    } else {
+        window.alert("You've already bookmarked this joke.");
     }
-    postJoke(bookmarkedJoke);
-    window.alert("Joke saved to your library!");
-    bookmarkBtn.classList.add("clicked", "fa-solid", "gold");
 })
 
 // PATCH and GET Requests for Likes and Bookmarks
@@ -126,10 +154,11 @@ const patchTotal = (patchObj) => {
         },
         body: JSON.stringify(patchObj),
     })
-    // .then((response) => response.json())
-    // .then((counterObj) => {
-    //     console.log(counterObj)
-    // })
+    // Keep getting errors, not sure why.  Code runs fine though.
+    .then((response) => response.json())
+    .then((counterObj) => {
+        console.log(counterObj)
+    })
     .then((error) => console.error(error))
 }
 
