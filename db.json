@@ -145,6 +145,41 @@
       "delivery": "Mitosis.",
       "destination": "bookmarkedJokes",
       "id": 22
+    },
+    {
+      "category": "Misc",
+      "setup": "\"99.9% of the people are dumb!\"",
+      "delivery": "\"Fortunately I belong to the remaining 1%\"",
+      "destination": "bookmarkedJokes",
+      "id": 23
+    },
+    {
+      "category": "Pun",
+      "setup": "I stayed up all night wondering where the sun went.",
+      "delivery": "Then it dawned on me.",
+      "destination": "bookmarkedJokes",
+      "id": 24
+    },
+    {
+      "category": "Pun",
+      "setup": "I just saw my wife trip over and drop a basket full of ironed clothes.",
+      "delivery": "I watched it all unfold.",
+      "destination": "bookmarkedJokes",
+      "id": 25
+    },
+    {
+      "category": "Programming",
+      "setup": "Why do Java programmers hate communism?",
+      "delivery": "They don't want to live in a classless society.",
+      "destination": "bookmarkedJokes",
+      "id": 26
+    },
+    {
+      "category": "Pun",
+      "setup": "What do you call a deer with no eyes?",
+      "delivery": "No eye deer.",
+      "destination": "bookmarkedJokes",
+      "id": 27
     }
   ],
   "userJokes": [
@@ -186,6 +221,28 @@
       "delivery": "test",
       "destination": "userJokes",
       "id": 5
+    },
+    {
+      "name": "Spongebob",
+      "category": "test cat",
+      "setup": "test setup",
+      "delivery": "test punchline",
+      "destination": "userJokes",
+      "id": 6
+    }
+  ],
+  "likeCounter": [
+    {
+      "id": 1,
+      "destination": "likeCounter",
+      "total": "27"
+    }
+  ],
+  "bookmarkCounter": [
+    {
+      "total": "0",
+      "destination": "boomkarkCounter",
+      "id": 1
     }
   ]
 }

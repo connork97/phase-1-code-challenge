@@ -34,10 +34,7 @@ const clickForJoke = (data) => {
     newJokeBtn.addEventListener('click', () => {
         displayJoke(data);
         fetchJoke();
-        likeCounter.textContent = 0;
-        likeBtn.classList.remove("fa-solid", "clicked");
-        dislikeBtn.classList.remove("fa-solid", "clicked");
-        bookmarkBtn.classList.remove("fa-solid", "gold", "clicked");
+        // likeCounter.textContent = 0;
         }
     )
 }
@@ -49,12 +46,20 @@ const displayJoke = (data) => {
     jokePunchline.style.color = 'white';
     jokePunchline.classList.add("revealed-span");
     revealPunchline(jokePunchline);
+    resetBtns();
 }
 
-const revealPunchline = (jokePunchline) => {
+const revealPunchline = () => {
     jokePunchline.addEventListener('mouseover', () => {
-        jokePunchline.style.color = 'black';
+        jokePunchline.classList.add('revealed-text');
     })
+}
+
+const resetBtns = () => {
+    likeBtn.classList.remove("fa-solid", "clicked");
+    dislikeBtn.classList.remove("fa-solid", "clicked");
+    bookmarkBtn.classList.remove("fa-solid", "gold", "clicked");
+    jokePunchline.classList.remove('revealed-text');
 }
 
 // New Joke Form
@@ -75,33 +80,69 @@ newJokeForm.addEventListener('submit', (event) => {
 
 // Like/Dislike/Bookmark Functions
 
-likeBtn.addEventListener('click', (event) => {
+likeBtn.addEventListener('click', () => {
     let totalLikes = Number(likeCounter.textContent);
     totalLikes += 1;
     likeCounter.textContent = Number(totalLikes);
     likeBtn.classList.add("clicked", "fa-solid");
+    createNewLike();
 })
 
 dislikeBtn.addEventListener('click', () => {
     let totalLikes = Number(likeCounter.textContent);
     totalLikes -= 1;
     likeCounter.textContent = Number(totalLikes);
-    dislikeBtn.classList.add("clicked", "fa-solid");
+    dislikeBtn.classList.add("clicked", "fa-solid");   
+    createNewLike();
 })
+
+const createNewLike = () => {
+    const newLike = {
+        destination: "likeCounter",
+        total: likeCounter.textContent,
+    }
+    patchTotal(newLike);    
+}
 
 bookmarkBtn.addEventListener('click', () => {
     const bookmarkedJoke = {
         category: jokeCat.textContent,
         setup: jokeSetup.textContent,
         delivery: jokePunchline.textContent,
-        destination: "bookmarkedJokes"
+        destination: "bookmarkedJokes/1"
     }
     postJoke(bookmarkedJoke);
     window.alert("Joke saved to your library!");
     bookmarkBtn.classList.add("clicked", "fa-solid", "gold");
 })
 
-// POST Requests
+// PATCH and GET Requests for Likes and Bookmarks
+
+const patchTotal = (patchObj) => {
+    fetch(LOCAL_URL + patchObj.destination + "/1", {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(patchObj),
+    })
+    // .then((response) => response.json())
+    // .then((counterObj) => {
+    //     console.log(counterObj)
+    // })
+    .then((error) => console.error(error))
+}
+
+const fetchLikes = () => {
+    fetch(LOCAL_URL + "likeCounter/1")
+    .then((response) => response.json())
+    .then((data) => {
+        likeCounter.textContent = data.total;
+    })
+    .then((error) => console.error(error))
+}
+
+// POST Request
 
 const postJoke = (jokeToPost) => {
     fetch(LOCAL_URL + jokeToPost.destination, {
@@ -168,6 +209,7 @@ const displayBookmarks = (bookmark) => {
 const init = () => {
     fetchJoke();
     fetchBookmarkCat();
+    fetchLikes();
 }
 
 init();

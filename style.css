@@ -61,9 +61,7 @@ input {
 }
 
 .revealed-span {
-    border-style: solid;
-    border-color: black;
-    border-width: 5px;
+    border: 5px solid black;
     padding: 10px;
     border-radius: 10px;
 }
@@ -78,14 +76,27 @@ input {
     margin: 2.5vh 0 2.5vh 0;
 }
 
-#joke-library-display p {
-    font-size: 2.5rem;
-}
-
 #joke-library-display div {
     padding-bottom: 2vh;
+    font-size: 2rem;
 }
 
-/* .joke-label {
-    font-weight: bold;
-} */
+.revealed-text {
+    animation: revealJoke 100s;
+}
+
+@keyframes revealJoke {
+    0% {
+        border: 5px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        color: white;
+    }
+    1.5% {color: black; opacity: 1;}
+    100% {
+        border: 5px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        color: black; 
+    }
+}
