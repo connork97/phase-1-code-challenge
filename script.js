@@ -34,7 +34,6 @@ const clickForJoke = (data) => {
     newJokeBtn.addEventListener('click', () => {
         displayJoke(data);
         fetchJoke();
-        // likeCounter.textContent = 0;
         }
     )
 }
@@ -43,7 +42,7 @@ const displayJoke = (data) => {
     jokeCat.textContent = data.category;
     jokeSetup.textContent = data.setup;
     jokePunchline.textContent = data.delivery;
-    jokePunchline.style.color = 'white';
+    jokePunchline.style.color = '#001220';
     jokePunchline.classList.add("revealed-span");
     revealPunchline(jokePunchline);
     resetBtns();

@@ -9,20 +9,24 @@
 
 <body>
     <h1 id="title">JokeBook</h1>
-    <div id="joke-display">
-        <button class="btn normal-btn" id="new-joke-btn" name="new-joke-btn">Click For Joke!</button>
+    <h2 id="intro">With help from our friends at <a href="https://sv443.net/jokeapi/v2/" target="_blank" style="color: white;">jokeapi.dev</a>, you can enjoy all the jokes you'd like, one laugh at a time!
+        <br>Simply click to generate a joke at random, upvote for the good ones and downvote for the not-so-good ones.
+        <br>If you <em>REALLY</em> like a joke and want to save it for later, go ahead and bookmark it!</h2>
+    <div id="joke-display" class="newSection">
+        <button class="btn normal-btn" id="new-joke-btn" name="new-joke-btn">Click For a Random Joke!</button>
         <p id="joke-category" class="joke-label"><strong>Category: </strong><span id="joke-category-span"></span></p>
         <p id="joke-setup" class="joke-label"><strong>Setup: </strong><span id="joke-setup-span"></span></p>
         <p id="joke-punchline" class="joke-label"><strong>Punchline: </strong><span id="joke-punchline-span"></span></p>
+        <br>
     </div>
-    <div id="feedback">
-        <p id="total-likes">Total Likes: <span id="like-counter">0</span></p>
-        <i id="like-btn" class="btn fa-regular fa-thumbs-up fa-2xl"></i>
-        <i id="dislike-btn" class="btn fa-regular fa-thumbs-down fa-2xl"></i>
-        <i id="bookmark-btn" class="btn fa-regular fa-bookmark fa-2xl"></i>
+    <div id="feedback" class="newSection">
+        <p id="total-likes">Total Laughs Had: <span id="like-counter">0</span></p>
+        <i id="like-btn" class="btn fa-regular fa-thumbs-up"></i>
+        <i id="dislike-btn" class="btn fa-regular fa-thumbs-down"></i>
+        <i id="bookmark-btn" class="btn fa-regular fa-bookmark"></i>
     </div>
-    <div id="submit-form-div">
-        <h2 id="submit-form-title" class="newSection">Submit a Joke!</h2>
+    <div id="submit-form-div" class="newSection">
+        <h2 id="submit-form-title">Submit a Joke!</h2>
         <form id="submit-joke">
             <h3 id="insert-name" class="submitInput">Author Name:
                 <input type="text" id="joke-name-input" name="name" placeholder="Your Name Here">
@@ -38,17 +42,14 @@
             </h3>
             <br>
             <button type="submit" id="submit-joke-btn" class="btn normal-btn" name="submit-joke">Submit Joke</button>
-            <br><br>
         </form>
     </div>
-    <br>
-    <div id="joke-library">
-        <label for="joke-dropdown" class="newSection"><strong>See Your Joke Library Here:</strong></label>
+    <div id="joke-library" class="newSection">
+        <label for="joke-dropdown"><strong>See Your Joke Library Here:</strong></label>
         <br>
         <select id="joke-dropdown" name="select-category">
             <option value="Select-Category">Select Category</option>
             <option value="Programming">Programming</option>
-            <option value="Dark">Dark</option>
             <option value="Pun">Pun</option>
             <option value="Spooky">Spooky</option>
             <option value="Christmas">Christmas</option>
@@ -56,5 +57,12 @@
         </select>
     </div>
     <div id="joke-library-display"></div>
+    <footer>
+        Connor Kormos,
+        Matt Roche,
+        Derrick Cleavall
+        <br><br>
+        Flatiron School Phase 1 Project, 2023
+    </footer>
 </body>
 </html>

@@ -2,11 +2,18 @@ body {
     margin: auto;
     text-align: center;
     font-family: monospace;
-    padding-bottom: 25vh;
+    color: white;
+    background-image: url('circle-scatter-haikei.png');
 }
 
 #title {
     font-size: 5rem;
+}
+
+#intro {
+    font-size: 1.5rem;
+    margin-bottom: 10vh;
+    line-height: 2rem;
 }
 
 .newSection {
@@ -24,15 +31,18 @@ input {
 }
 
 .normal-btn {
-    background-color: #ADD8E6;
+    background-color: #D12C49;
     scale: 2;
+    padding: 10px 15px 10px 15px;
+    margin-bottom: 10vh;
     border-radius: 10px;
-    border-color: #ADD8E6;
+    border-color: #D12C49;
+    color: white;
 }
 
 .fa-regular {
     margin: 2rem;
-    scale: 2;
+    scale: 1.5;
 }
 
 .btn:hover {
@@ -40,16 +50,16 @@ input {
 }
 
 .gold {
-    color: gold;
+    color: #f9d306;
 }
 
 .clicked{
     animation: enlargeButton 1s;
 }
 @keyframes enlargeButton {
-    0% {scale: 2}
-    50% {scale: 2.5}
-    100% {scale: 2}
+    0% {scale: 1.5}
+    50% {scale: 2}
+    100% {scale: 1.5}
 }
 
 #joke-display {
@@ -61,7 +71,7 @@ input {
 }
 
 .revealed-span {
-    border: 5px solid black;
+    border: 5px solid white;
     padding: 10px;
     border-radius: 10px;
 }
@@ -72,8 +82,8 @@ input {
 }
 
 #joke-dropdown {
-    scale: 3;
-    margin: 2.5vh 0 2.5vh 0;
+    scale: 2.5;
+    margin: 10vh 0 7.5vh 0;
 }
 
 #joke-library-display div {
@@ -87,16 +97,24 @@ input {
 
 @keyframes revealJoke {
     0% {
-        border: 5px solid black;
+        border: 5px solid white;
         border-radius: 10px;
         padding: 10px;
-        color: white;
+        color: #001220;
     }
-    1.5% {color: black; opacity: 1;}
+    1.5% {color: white; opacity: 1;}
     100% {
-        border: 5px solid black;
+        border: 5px solid white;
         border-radius: 10px;
         padding: 10px;
-        color: black; 
+        color: white; 
     }
+}
+
+option {
+    font-size: 1.5rem;
+}
+
+footer {
+    padding: 25vh 0 10vh 0;
 }
