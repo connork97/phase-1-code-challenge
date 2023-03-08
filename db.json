@@ -47,6 +47,27 @@
       "setup": "What does a turkey dress up as for Halloween?",
       "delivery": "A gobblin'!",
       "id": 8
+    },
+    {
+      "category": "Programming",
+      "setup": "Why do programmers confuse Halloween and Christmas?",
+      "delivery": "Because Oct 31 = Dec 25",
+      "destination": "bookmarkedJokes",
+      "id": 9
+    },
+    {
+      "category": "Programming",
+      "setup": "Why are Assembly programmers always soaking wet?",
+      "delivery": "They work below C-level.",
+      "destination": "bookmarkedJokes",
+      "id": 10
+    },
+    {
+      "category": "Pun",
+      "setup": "Thank you student loans for getting me through college.",
+      "delivery": "I don't think I'll ever be able to repay you.",
+      "destination": "bookmarkedJokes",
+      "id": 11
     }
   ],
   "userJokes": [
@@ -56,6 +77,30 @@
       "setup": "Knock knock",
       "delivery": "Is there an owl in here",
       "id": 1
+    },
+    {
+      "name": "Connor",
+      "category": "Test Category",
+      "setup": "Test Setup",
+      "delivery": "Test Punchline",
+      "destination": "userJokes",
+      "id": 2
+    },
+    {
+      "name": "Connor",
+      "category": "New Category Test",
+      "setup": "New Setup Test",
+      "delivery": "New Punchline Test",
+      "destination": "userJokes",
+      "id": 3
+    },
+    {
+      "name": "Connor",
+      "category": "New Category Test",
+      "setup": "New Setup Test",
+      "delivery": "New Punchline Test",
+      "destination": "userJokes",
+      "id": 4
     }
   ]
 }

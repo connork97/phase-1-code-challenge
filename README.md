@@ -29,3 +29,34 @@ Joke Request Form
 Maybe a Dark/Light Mode Toggle Event Listener?
 
 Add Font Awesome Icons for Buttons, etc
+
+For Reference:  These Functions have been consolidated into one function, "postJoke"
+// const postBookmarkedJoke = (bookmarkedJokePost) => {
+//     fetch(LOCAL_URL + "bookmarkedJoke", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(bookmarkedJokePost),
+//     })
+//     .then((response) => response.json())
+//     .then((bookmarkedJokePost) => {
+//         console.log("Success:", bookmarkedJokePost);
+//     })
+//     .catch((error) => console.error(error))
+// }
+
+// const postUserJoke = (userJokePost) => {
+//     fetch(LOCAL_URL + "userJoke", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(userJokePost),
+//     })
+//     .then((response) => response.json())
+//     .then((userJokePost) => {
+//         console.log("Success:", userJokePost);
+//     })
+//     .catch((error) => console.error(error))
+// }
