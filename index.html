@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>JokeBook</title>
-        <script defer src="script.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="style.css" />
+<head>
+    <title>JokeBook</title>
+    <script defer src="script.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/92930ce73e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
 
-    </head>
-    <body>
-        <h1 id="title">JokeBook</h1>
-        <div id="joke-display">
-            <button class="btn" id="new-joke-btn" name="new-joke-btn">Click For Joke!</button>
-            <p id="joke-category"><strong>Category:</strong></p><span id="joke-category-span"></span>
-            <p id="joke-setup"><strong>Setup:</strong></p><span id="joke-setup-span"></span>
-            <p id="joke-punchline"><strong>Punchline:</strong></p><span id="joke-punchline-span"></span>
-        </div>
-        <div id="feedback">
-            <p id="total-likes">Total Likes: <span id="like-counter">0</span></p>
-            <button class="btn" id="like-btn" name="like">Like</button>
-            <button class="btn" id="dislike-btn" name="dislike">Dislike</button>
-            <br>
-            <button class="btn" id="bookmark-btn" name="bookmark">Bookmark</button>
-        </div>
-        <div id="submit-form-div">
-            <h2 id="submit-form-title">Submit a Joke!</h2>
-            <form id="submit-joke">
-                <h3 id="insert-name">Joke Author Name:</h3>
+<body>
+    <h1 id="title">JokeBook</h1>
+    <div id="joke-display">
+        <button class="btn normal-btn" id="new-joke-btn" name="new-joke-btn">Click For Joke!</button>
+        <p id="joke-category" class="joke-label"><strong>Category: </strong><span id="joke-category-span"></span></p>
+        <p id="joke-setup" class="joke-label"><strong>Setup: </strong><span id="joke-setup-span"></span></p>
+        <p id="joke-punchline" class="joke-label"><strong>Punchline: </strong><span id="joke-punchline-span"></span></p>
+    </div>
+    <div id="feedback">
+        <p id="total-likes">Total Likes: <span id="like-counter">0</span></p>
+        <i id="like-btn" class="btn fa-regular fa-thumbs-up fa-2xl"></i>
+        <i id="dislike-btn" class="btn fa-regular fa-thumbs-down fa-2xl"></i>
+        <i id="bookmark-btn" class="btn fa-regular fa-bookmark fa-2xl"></i>
+    </div>
+    <div id="submit-form-div">
+        <h2 id="submit-form-title" class="newSection">Submit a Joke!</h2>
+        <form id="submit-joke">
+            <h3 id="insert-name" class="submitInput">Author Name:
                 <input type="text" id="joke-name-input" name="name" placeholder="Your Name Here">
-                <h3 id="insert-category">Joke Category:</h3>
+            </h3>
+            <h3 id="insert-category" class="submitInput">Category:
                 <input type="text" id="joke-category-input" name="category" placeholder="Joke Category Here">
-                <h3 id="insert-setup">Joke Setup:</h3>
+            </h3>
+            <h3 id="insert-setup" class="submitInput">Setup:
                 <input type="text" id="joke-setup-input" name="setup" placeholder="Joke Setup Here">
-                <h3 id="insert-punchline">Joke Punchline:</h3>
+            </h3>
+            <h3 id="insert-punchline" class="submitInput">Punchline:
                 <input type="text" id="joke-punchline-input" name="punchline" placeholder="Your Punchline Here">
-                <br><br>
-                <button type="submit" id="submit-joke-btn" name="submit-joke">Submit</button>
-            </form>
-        </div>
-        <br>
-        <div id="joke-library">
-            <label for="joke-dropdown"><strong>See Your Joke Library Here:</strong></label>
+            </h3>
+            <br>
+            <button type="submit" id="submit-joke-btn" class="btn normal-btn" name="submit-joke">Submit Joke</button>
             <br><br>
-            <select id="joke-dropdown" name="select-category">
-                <option value="Select-Category">Select Category</option>
-                <option value="Programming">Programming</option>
-                <option value="Dark">Dark</option>
-                <option value="Pun">Pun</option>
-                <option value="Spooky">Spooky</option>
-                <option value="Christmas">Christmas</option>
-                <option value="Misc">Misc</option>
-            </select>
-        </div>
-        <div id="joke-library-display">
-
-        </div>
-    </body>
+        </form>
+    </div>
+    <br>
+    <div id="joke-library">
+        <label for="joke-dropdown" class="newSection"><strong>See Your Joke Library Here:</strong></label>
+        <br>
+        <select id="joke-dropdown" name="select-category">
+            <option value="Select-Category">Select Category</option>
+            <option value="Programming">Programming</option>
+            <option value="Dark">Dark</option>
+            <option value="Pun">Pun</option>
+            <option value="Spooky">Spooky</option>
+            <option value="Christmas">Christmas</option>
+            <option value="Misc">Misc</option>
+        </select>
+    </div>
+    <div id="joke-library-display"></div>
+</body>
 </html>

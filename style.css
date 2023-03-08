@@ -1,5 +1,91 @@
 body {
+    margin: auto;
     text-align: center;
     font-family: monospace;
+    padding-bottom: 25vh;
 }
 
+#title {
+    font-size: 5rem;
+}
+
+.newSection {
+    font-size: 3rem;
+}
+
+.submitInput {
+    font-size: 2rem;
+    margin-right: 7.5rem;
+}
+
+input {
+    scale: 2;
+    margin-left: 7.5rem;
+}
+
+.normal-btn {
+    background-color: #ADD8E6;
+    scale: 2;
+    border-radius: 10px;
+    border-color: #ADD8E6;
+}
+
+.fa-regular {
+    margin: 2rem;
+    scale: 2;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.gold {
+    color: gold;
+}
+
+.clicked{
+    animation: enlargeButton 1s;
+}
+@keyframes enlargeButton {
+    0% {scale: 2}
+    50% {scale: 2.5}
+    100% {scale: 2}
+}
+
+#joke-display {
+    font-size: 2.25rem;
+}
+
+#joke-display span {
+    font-size: 1.5rem;
+}
+
+.revealed-span {
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#total-likes {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#joke-dropdown {
+    scale: 3;
+    margin: 2.5vh 0 2.5vh 0;
+}
+
+#joke-library-display p {
+    font-size: 2.5rem;
+}
+
+#joke-library-display div {
+    padding-bottom: 2vh;
+}
+
+/* .joke-label {
+    font-weight: bold;
+} */

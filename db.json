@@ -68,6 +68,83 @@
       "delivery": "I don't think I'll ever be able to repay you.",
       "destination": "bookmarkedJokes",
       "id": 11
+    },
+    {
+      "category": "",
+      "setup": "",
+      "delivery": "",
+      "destination": "bookmarkedJokes",
+      "id": 12
+    },
+    {
+      "category": "",
+      "setup": "",
+      "delivery": "",
+      "destination": "bookmarkedJokes",
+      "id": 13
+    },
+    {
+      "category": "",
+      "setup": "",
+      "delivery": "",
+      "destination": "bookmarkedJokes",
+      "id": 14
+    },
+    {
+      "category": "",
+      "setup": "",
+      "delivery": "",
+      "destination": "bookmarkedJokes",
+      "id": 15
+    },
+    {
+      "category": "",
+      "setup": "",
+      "delivery": "",
+      "destination": "bookmarkedJokes",
+      "id": 16
+    },
+    {
+      "category": "Programming",
+      "setup": "What is a dying programmer's last program?",
+      "delivery": "Goodbye, world!",
+      "destination": "bookmarkedJokes",
+      "id": 17
+    },
+    {
+      "category": "Programming",
+      "setup": "Why do programmers confuse Halloween and Christmas?",
+      "delivery": "Because Oct 31 = Dec 25",
+      "destination": "bookmarkedJokes",
+      "id": 18
+    },
+    {
+      "category": "Christmas",
+      "setup": "Why couldn't the skeleton go to the Christmas party?",
+      "delivery": "Because he had no body to go with!",
+      "destination": "bookmarkedJokes",
+      "id": 19
+    },
+    {
+      "category": "Programming",
+      "setup": "Hey baby I wish your name was asynchronous...",
+      "delivery": "... so you'd give me a callback.",
+      "destination": "bookmarkedJokes",
+      "id": 20
+    },
+    {
+      "category": "Pun",
+      "setup": "Why should you never talk to pi?",
+      "delivery": "Because it will go on forever.",
+      "destination": "bookmarkedJokes",
+      "id": 21
+    },
+    {
+      "category": "Pun",
+      "setup": "What did the cell say when his sister cell stepped on his foot?",
+      "delivery": "Mitosis.",
+      "destination": "bookmarkedJokes",
+      "id": 22
     }
   ],
   "userJokes": [
@@ -101,6 +178,14 @@
       "delivery": "New Punchline Test",
       "destination": "userJokes",
       "id": 4
+    },
+    {
+      "name": "test",
+      "category": "test",
+      "setup": "test",
+      "delivery": "test",
+      "destination": "userJokes",
+      "id": 5
     }
   ]
 }
