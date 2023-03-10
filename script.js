@@ -50,17 +50,34 @@ const fetchLikes = () => {
 }
 
 // User Account Creation and Login Functions
+let accountExists = false;
+console.log(accountExists);
 
 createAccountForm.addEventListener('submit', (event) => {
-    const newUser = {
+    allUsersArr[0].forEach((userObj) => {
+        if(userObj.userName.includes(event.target.newUserName.value)) {
+            console.log(userObj.userName);
+            accountExists = true;
+        }
+    });
+    console.log(accountExists);
+    if (accountExists) {
+        window.alert("Sorry, this account already exists.  Please choose a new username.");
+    } else if (accountExists == false && event.target.newUserName.value.includes(" ") === false && event.target.newPassword.value.includes(" ") === false){
+        console.log(accountExists);
+        const newUser = {
         userName: event.target.newUserName.value,
         password: event.target.newPassword.value,
         bookmarks: []
     }
     postNewUser(newUser);
     displayUser(newUser);
+    window.alert("Account successfully created!");
     createAccountForm.reset();
     event.preventDefault();
+} else if (accountExists == false && (event.target.newUserName.value.includes(" ") === true || event.target.newPassword.value.includes(" ") === true)) {
+    window.alert("Please do not use spaces in your username or password.")
+}
 })
 
 const postNewUser = (newUser) => {

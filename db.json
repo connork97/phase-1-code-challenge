@@ -67,7 +67,7 @@
     {
       "id": 1,
       "destination": "likeCounter",
-      "total": "60"
+      "total": "61"
     }
   ],
   "users": [
@@ -209,6 +209,57 @@
         }
       ],
       "id": 29
+    },
+    {
+      "userName": "testname",
+      "password": "testpassword",
+      "bookmarks": [],
+      "id": 30
+    },
+    {
+      "userName": "Connor",
+      "password": "test",
+      "bookmarks": [],
+      "id": 31
+    },
+    {
+      "userName": "Connor",
+      "password": "test2",
+      "bookmarks": [],
+      "id": 32
+    },
+    {
+      "userName": "Connor",
+      "password": "test3",
+      "bookmarks": [],
+      "id": 33
+    },
+    {
+      "userName": "newTestAccount",
+      "password": "newTestPassword",
+      "bookmarks": [
+        {
+          "category": "Spooky",
+          "setup": "Why did the ghost go inside the bar?",
+          "delivery": "For the boos."
+        },
+        {
+          "category": "Christmas",
+          "setup": "Whats the Grinchs least favorite band?",
+          "delivery": "The Who."
+        },
+        {
+          "category": "Pun",
+          "setup": "What time did the man go to the dentist?",
+          "delivery": "Tooth hurt-y."
+        },
+        {
+          "category": "Programming",
+          "setup": ".NET developers are picky when it comes to food.",
+          "delivery": "They only like chicken NuGet."
+        }
+      ],
+      "id": 34
     }
   ]
 }
