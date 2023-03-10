@@ -1,29 +1,55 @@
 // Base URLs
 const JOKE_URL = "https://v2.jokeapi.dev/joke/";
 const LOCAL_URL = "http://localhost:3000/";
-const BOOKMARK_URL = "http://localhost:3000/bookmarkedJokes";
 const USERS_URL = "http://localhost:3000/users/";
 
-// Global Variables
-// const jokeCat = document.getElementById('joke-category-span');
+// Global Joke Display Variables
 const jokeCat = document.createElement('span');
 const jokeSetup = document.getElementById('joke-setup');
 const jokePunchline = document.getElementById('joke-punchline');
+const likeCounter = document.getElementById('like-counter');
 
 // Buttons
 const likeBtn = document.getElementById('like-btn');
 const dislikeBtn = document.getElementById('dislike-btn');
-const likeCounter = document.getElementById('like-counter');
 const bookmarkBtn = document.getElementById('bookmark-btn');
+const categorySpan = document.querySelectorAll('.catSpan');
 
 // Forms/Divs
-const newJokeForm = document.getElementById('submit-joke');
-const jokeLibDiv = document.getElementById('joke-library-display');
-
-// User Login Functions
-
 const createAccountForm = document.getElementById('create-account-form');
+const loginForm = document.getElementById('login-form');
+const newJokeForm = document.getElementById('submit-joke');
+const bookmarkDropdown = document.getElementById('joke-dropdown');
+
+const jokeLibDiv = document.getElementById('joke-library-display');
+const userInfoDiv = document.getElementById('userInfoDiv');
+
+// Local Storage Arrays
+
 let currentUserArr = [];
+let allUsersArr = [];
+let bookmarksArr = [];
+
+// Requests On Page Load
+
+const fetchAllUsers = () => {
+    fetch(USERS_URL)
+    .then((response) => response.json())
+    .then((usersArr) => {
+        allUsersArr.push(usersArr);
+    })
+}
+
+const fetchLikes = () => {
+    fetch(LOCAL_URL + "likeCounter/1")
+    .then((response) => response.json())
+    .then((data) => {
+        likeCounter.textContent = data.total;
+    })
+    .then((error) => console.error(error))
+}
+
+// User Account Creation and Login Functions
 
 createAccountForm.addEventListener('submit', (event) => {
     const newUser = {
@@ -54,54 +80,32 @@ const postNewUser = (newUser) => {
     .catch((error) => console.error(error))
 }
 
-// let newUsersArr = [];
-
-// const fetchUserAccounts = () => {
-//     fetch(USERS_URL)
-//     .then((response) => response.json())
-//     .then((usersArr) => {
-//         usersArr.forEach((userObj) => {
-//             newUsersArr.push(userObj);
-//         })
-//     })
-// }
-
-let allUsersArr = [];
-console.log(allUsersArr);
-
-const fetchAllUsers = () => {
-    fetch(USERS_URL)
-    .then((response) => response.json())
-    .then((usersArr) => {
-        allUsersArr.push(usersArr);
-    })
-}
-
-const loginForm = document.getElementById('login-form');
 loginForm.addEventListener('submit', (event) => {
     const userName = event.target.userName.value;
     userName.userName = event.target.userName.value;
     const userPassword = event.target.password.value;
     userPassword.password = event.target.password.value;
-    findAccount(userName, userPassword);
+    verifyLogin(userName, userPassword);
     loginForm.reset();
     event.preventDefault();
 })
 
-const findAccount = (userName, userPassword) => {
-    console.log(userName);
+const verifyLogin = (userName, userPassword) => {
+    let alerted = false;
     allUsersArr[0].forEach((userObj) => {
         if(userObj.userName == userName && userObj.password == userPassword) {
-            console.log("holy shit it works");
             currentUserArr.push(userObj);
             displayLoggedIn(userName);
-        } else {
-            console.log("This account doesn't exist.  Please try again.")
-        }
+            alerted = true;
+            window.alert("Login successful!");
+        } 
     });
+    if (alerted == false) {
+        window.alert("Failed login. Please try again.");
+    }
 }
 
-const userInfoDiv = document.getElementById('userInfoDiv');
+// Displaying User Info Upon Successful Account Creation/Login
 
 const displayLoggedIn = (user) => {
     userInfoDiv.innerHTML = "";
@@ -128,6 +132,8 @@ const displayUser = (user) => {
     enableBookmark(user);
 }
 
+// Personal User Bookmark Features
+
 const enableBookmark = (user) => {
     bookmarkBtn.addEventListener('click', () => {
         if(jokeSetup.textContent === "") {
@@ -145,16 +151,11 @@ const enableBookmark = (user) => {
             patchCurrentUser();
             console.log(bookmarkedJoke);
             bookmarkBtn.classList.add("clicked", "fa-solid", "gold");
-            setTimeout(() => {
-                window.alert("Joke saved to your library!");
-            }, 1000);
         } else {
             window.alert("You've already bookmarked this joke.");
         }
     })
 }
-
-let bookmarksArr = [];
 
 const fetchBookmarks = () => {
     fetch(USERS_URL + currentUserArr[0].id)
@@ -169,7 +170,6 @@ const filterBookmarks = (category, bookmarksArr) => {
         return bookmark.category === category;
     })
 }
-const bookmarkDropdown = document.getElementById('joke-dropdown');
 
 bookmarkDropdown.addEventListener('change', (event) => {
     jokeLibDiv.innerHTML = "";
@@ -178,12 +178,6 @@ bookmarkDropdown.addEventListener('change', (event) => {
         displayBookmarks(bookmark);
     })
 })
-
-// const filterBookmarks = (category, bookmarksArray) => {
-//     return bookmarksArray.filter((bookmark) => {
-//         return bookmark.category === category;
-//     })
-// }
 
 const displayBookmarks = (bookmark) => {
     const newBookmarkDiv = document.createElement('div');
@@ -207,9 +201,8 @@ const patchCurrentUser = () => {
     .catch((error) => console.error(error))
 }
 
-// Functions to Display Jokes:
+// Functions to Display Jokes After Clicking Category Buttons
 
-const categorySpan = document.querySelectorAll('.catSpan');
 categorySpan.forEach((span) => {
     span.addEventListener('click', (event) => {
         console.log(event.target.id);
@@ -257,7 +250,7 @@ const resetBtns = () => {
     jokePunchline.classList.remove('revealed-text');
 }
 
-// New Joke Form
+// New Joke Submission Form
 
 newJokeForm.addEventListener('submit', (event) => {
     const userJoke = {
@@ -265,15 +258,30 @@ newJokeForm.addEventListener('submit', (event) => {
         category: event.target.category.value,
         setup: event.target.setup.value,
         delivery: event.target.punchline.value,
-        destination: "userJokes"
     }
     displayJoke(userJoke);
     postJoke(userJoke);
     window.alert("Joke submitted and awaiting approval!");
+    newJokeForm.reset();
     event.preventDefault();
 })
 
-// Like/Dislike/Bookmark Functions
+const postJoke = (jokeToPost) => {
+    fetch(LOCAL_URL + "userJokes", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(jokeToPost),
+    })
+    .then((response) => response.json())
+    .then((jokeObj) => {
+        console.log("Success:", jokeObj);
+    })
+    .catch((error) => console.error(error))
+}
+
+// Like/Dislike Functions
 
 likeBtn.addEventListener('click', () => {
     let totalLikes = Number(likeCounter.textContent);
@@ -311,28 +319,6 @@ dislikeBtn.addEventListener('click', () => {
     }
 })
 
-// FUNCTIONAL GENERAL BOOKMARK FUNCTION
-
-// bookmarkBtn.addEventListener('click', () => {
-//     if(jokeSetup.textContent === "") {
-//         window.alert("Please select a joke to display.")
-//     } else if(bookmarkBtn.classList.contains("clicked") === false){
-//         const bookmarkedJoke = {
-//             category: jokeCat.category,
-//             setup: jokeSetup.textContent,
-//             delivery: jokePunchline.textContent,
-//             destination: "bookmarkedJokes"
-//         }
-//         postJoke(bookmarkedJoke);
-//         bookmarkBtn.classList.add("clicked", "fa-solid", "gold");
-//         setTimeout(() => {
-//             window.alert("Joke saved to your library!");
-//         }, 1000);
-//     } else {
-//         window.alert("You've already bookmarked this joke.");
-//     }
-// })
-
 const createNewLike = () => {
     const newLike = {
         destination: "likeCounter",
@@ -341,10 +327,8 @@ const createNewLike = () => {
     patchTotal(newLike);    
 }
 
-// PATCH and GET Requests for Likes and Bookmarks
-
 const patchTotal = (patchObj) => {
-    fetch(LOCAL_URL + patchObj.destination + "/1", {
+    fetch(LOCAL_URL + "likeCounter/1", {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
@@ -359,63 +343,7 @@ const patchTotal = (patchObj) => {
     .then((error) => console.error(error))
 }
 
-const fetchLikes = () => {
-    fetch(LOCAL_URL + "likeCounter/1")
-    .then((response) => response.json())
-    .then((data) => {
-        likeCounter.textContent = data.total;
-    })
-    .then((error) => console.error(error))
-}
-
-// POST Request
-
-const postJoke = (jokeToPost) => {
-    fetch(LOCAL_URL + jokeToPost.destination, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(jokeToPost),
-    })
-    .then((response) => response.json())
-    .then((jokeObj) => {
-        console.log("Success:", jokeObj);
-    })
-    .catch((error) => console.error(error))
-}
-
-// Sort Through By Category
-
-
-// let newBookmarksArr = [];
-
-// Catch All Bookmark Fetch and Accompanying Filter/Display of said Bookmarks
-
-// const fetchBookmarkCat = (user) => {
-//     fetch(USERS_URL + "")
-//     .then((response) => response.json())
-//     .then((bookmarkArr) => {
-//         bookmarkArr.forEach((bookmarkObj) => {
-//             newBookmarksArr.push(bookmarkObj);
-//         })
-//     })
-// }
-
-// const filterBookmarks = (category, bookmarksArray) => {
-//     return bookmarksArray.filter((bookmark) => {
-//         return bookmark.category === category;
-//     })
-// }
-
-// const displayBookmarks = (bookmark) => {
-//     const newBookmarkDiv = document.createElement('div');
-//     const bookmarkSetup = document.createElement('p');
-//     const bookmarkPunchline = document.createElement('p');
-//     bookmarkSetup.textContent = bookmark.setup;
-//     bookmarkPunchline.textContent = bookmark.delivery;
-//     jokeLibDiv.appendChild(newBookmarkDiv).append(bookmarkSetup, bookmarkPunchline);
-// }
+// Page Initialization Function
 
 const init = () => {
     // fetchBookmarkCat();

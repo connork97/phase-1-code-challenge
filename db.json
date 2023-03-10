@@ -54,13 +54,20 @@
       "delivery": "booo hooo waaaaaa",
       "destination": "userJokes",
       "id": 7
+    },
+    {
+      "name": "Connor",
+      "category": "Knock Knock",
+      "setup": "Knock knock.  Who's there? Annie. Anni who?...\n",
+      "delivery": "Annie thing you can do, I can do too!",
+      "id": 8
     }
   ],
   "likeCounter": [
     {
       "id": 1,
       "destination": "likeCounter",
-      "total": "46"
+      "total": "53"
     }
   ],
   "users": [
@@ -104,9 +111,57 @@
           "category": "Programming",
           "setup": "why do python programmers wear glasses?",
           "delivery": "Because they can't C."
+        },
+        {
+          "category": "Misc",
+          "setup": "\"99.9% of the people are dumb!\"",
+          "delivery": "\"Fortunately I belong to the remaining 1%\""
+        },
+        {
+          "category": "Misc",
+          "setup": "My mother said, \"You won't amount to anything because you always procrastinate.\"",
+          "delivery": "I said, \"Oh yeah... Just you wait.\""
+        },
+        {
+          "category": "Misc",
+          "setup": "What's the difference between an in-law and an outlaw?",
+          "delivery": "An outlaw is wanted."
+        },
+        {
+          "category": "Misc",
+          "setup": "My wife left me because I'm too insecure and paranoid.",
+          "delivery": "Oh wait, never mind. She was just getting the mail."
+        },
+        {
+          "category": "Pun",
+          "setup": "I asked my wife if I was the only one she's been with.",
+          "delivery": "She said, \"Yes, the others were at least sevens or eights.\""
+        },
+        {
+          "category": "Spooky",
+          "setup": "Why did the ghost go inside the bar?",
+          "delivery": "For the boos."
         }
       ],
       "id": 26
+    },
+    {
+      "userName": "Matt",
+      "password": "immatt",
+      "bookmarks": [
+        {
+          "category": "Programming",
+          "setup": "Why are Assembly programmers always soaking wet?",
+          "delivery": "They work below C-level."
+        }
+      ],
+      "id": 27
+    },
+    {
+      "userName": "Derrick",
+      "password": "imderrick",
+      "bookmarks": [],
+      "id": 28
     }
   ]
 }
