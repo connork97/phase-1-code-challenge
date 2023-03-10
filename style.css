@@ -1,3 +1,4 @@
+/* Shared/Universal CSS */
 body {
     margin: auto;
     text-align: center;
@@ -6,28 +7,129 @@ body {
     background-image: url('circle-scatter-haikei.png');
 }
 
+h2, .newSection, #category-menu-div {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 4rem;
+    margin: 10vh 0 7.5vh 0;
+}
+
+.btn, select, #joke-dropdown, .catSpan {
+    cursor: pointer;
+}
+
+/* CSS In Relative Order */
+
+/* User Information */
+
+#userInfoDiv {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.userInfo {
+    font-size: 1.5rem;
+}
+
+/* Title and Intro */
+
 #title {
     font-size: 5rem;
+    margin: 7.5vh 0 5vh 0;
 }
 
 #intro {
     font-size: 1.5rem;
-    margin-bottom: 10vh;
+    margin-bottom: 7.5vh;
     line-height: 2rem;
 }
 
-.newSection {
-    font-size: 3rem;
-}
+/* Categories and Joke Display */
 
-.submitInput {
+.catSpan {
+    display: inline-block;
     font-size: 2rem;
-    margin-right: 7.5rem;
+    border: solid 1px #D12C49;
+    border-radius: 15px;
+    padding: 5px 12.5px 5px 12.5px;
+    background-color: #D12C49;
 }
 
-input {
-    scale: 2;
-    margin-left: 7.5rem;
+.selected {
+    animation: menuBounce 100s 1;
+}
+
+@keyframes menuBounce {
+    0% {transform: translateY(0)}
+    0.5% {transform: translateY(-10px)}
+    1% {transform: translateY(0)}
+    100% {transform: translateY(0)}
+}
+
+#joke-display {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10vh auto 10vh auto;
+}
+
+#joke-punchline {
+    font-size: 1.75rem;
+    margin-top: 5vh;
+}
+
+.revealed-span {
+    border: 5px solid white;
+    padding: 10px 25px 10px 25px;
+    border-radius: 10px;
+}
+
+/* Joke Feedback Buttons and their Animations */
+
+#total-likes {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.fa-regular {
+    margin: 2rem;
+    scale: 1.5;
+}
+
+.clicked{
+    animation: enlargeButton 1s;
+}
+
+@keyframes enlargeButton {
+    0% {scale: 1.5}
+    50% {scale: 2}
+    100% {scale: 1.5}
+}
+
+.gold {
+    color: #f9d306;
+}
+
+/* Joke Form */
+
+.jokeInput {
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 0 0 5vh 0;
+    width: 25vw;
+    border-radius: 25px;
+    text-align: center;
+    justify-content: center;
+    resize: none;
+}
+
+.jokeInput::-webkit-scrollbar {
+    display: none;
+}
+
+textarea::placeholder {
+    line-height: 50px;
 }
 
 .normal-btn {
@@ -40,50 +142,15 @@ input {
     color: white;
 }
 
-.fa-regular {
-    margin: 2rem;
-    scale: 1.5;
-}
-
-.btn:hover {
-    cursor: pointer;
-}
-
-.gold {
-    color: #f9d306;
-}
-
-.clicked{
-    animation: enlargeButton 1s;
-}
-@keyframes enlargeButton {
-    0% {scale: 1.5}
-    50% {scale: 2}
-    100% {scale: 1.5}
-}
-
-#joke-display {
-    font-size: 2.25rem;
-}
-
-#joke-display span {
+option {
     font-size: 1.5rem;
-}
-
-.revealed-span {
-    border: 5px solid white;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-#total-likes {
-    font-size: 1.5rem;
-    font-weight: bold;
 }
 
 #joke-dropdown {
     scale: 2.5;
     margin: 10vh 0 7.5vh 0;
+    text-align: center;
+    border-radius: 25px;
 }
 
 #joke-library-display div {
@@ -99,20 +166,16 @@ input {
     0% {
         border: 5px solid white;
         border-radius: 10px;
-        padding: 10px;
+        padding: 10px 25px 10px 25px;
         color: #001220;
     }
     1.5% {color: white; opacity: 1;}
     100% {
         border: 5px solid white;
         border-radius: 10px;
-        padding: 10px;
+        padding: 10px 25px 10px 25px;
         color: white; 
     }
-}
-
-option {
-    font-size: 1.5rem;
 }
 
 footer {

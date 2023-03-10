@@ -180,6 +180,41 @@
       "delivery": "No eye deer.",
       "destination": "bookmarkedJokes",
       "id": 27
+    },
+    {
+      "category": "Pun",
+      "setup": "The gas Argon walks into a bar.\nThe barkeeper says \"What would you like to drink?\"",
+      "delivery": "But Argon doesn't react.",
+      "destination": "bookmarkedJokes",
+      "id": 28
+    },
+    {
+      "category": "Pun",
+      "setup": "What do you call a caveman's fart?",
+      "delivery": "A blast from the past.",
+      "destination": "bookmarkedJokes",
+      "id": 29
+    },
+    {
+      "category": "Spooky",
+      "setup": "Why did the ghost go inside the bar?",
+      "delivery": "For the boos.",
+      "destination": "bookmarkedJokes",
+      "id": 30
+    },
+    {
+      "category": "Christmas",
+      "setup": "Who is Santa's favourite singer?",
+      "delivery": "Elf-is Presley!",
+      "destination": "bookmarkedJokes",
+      "id": 31
+    },
+    {
+      "category": "Spooky",
+      "setup": "Why do ghosts go on diets?",
+      "delivery": "So they can keep their ghoulish figures.",
+      "destination": "bookmarkedJokes",
+      "id": 32
     }
   ],
   "userJokes": [
@@ -229,20 +264,65 @@
       "delivery": "test punchline",
       "destination": "userJokes",
       "id": 6
+    },
+    {
+      "name": "Hynek",
+      "category": "Knock knock",
+      "setup": "boooo",
+      "delivery": "booo hooo waaaaaa",
+      "destination": "userJokes",
+      "id": 7
+    },
+    {
+      "name": "",
+      "category": "",
+      "setup": "",
+      "delivery": "",
+      "destination": "userJokes",
+      "id": 8
     }
   ],
   "likeCounter": [
     {
       "id": 1,
       "destination": "likeCounter",
-      "total": "71"
+      "total": "35"
     }
   ],
-  "bookmarkCounter": [
+  "users": [
     {
-      "total": "0",
-      "destination": "boomkarkCounter",
+      "bookmarks": [],
       "id": 1
+    },
+    {
+      "userName": "connor",
+      "password": "test123",
+      "bookmarks": [],
+      "id": 2
+    },
+    {
+      "userName": "connor",
+      "password": "test2",
+      "bookmarks": [],
+      "id": 3
+    },
+    {
+      "userName": "connor",
+      "password": "test2",
+      "bookmarks": [],
+      "id": 4
+    },
+    {
+      "userName": "connor",
+      "password": "test3",
+      "bookmarks": [],
+      "id": 5
+    },
+    {
+      "userName": "connor",
+      "password": "test4",
+      "bookmarks": [],
+      "id": 6
     }
   ]
 }
