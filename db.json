@@ -9,65 +9,24 @@
     },
     {
       "name": "Connor",
-      "category": "Test Category",
-      "setup": "Test Setup",
-      "delivery": "Test Punchline",
-      "destination": "userJokes",
-      "id": 2
-    },
-    {
-      "name": "Connor",
-      "category": "New Category Test",
-      "setup": "New Setup Test",
-      "delivery": "New Punchline Test",
-      "destination": "userJokes",
-      "id": 3
-    },
-    {
-      "name": "Connor",
-      "category": "New Category Test",
-      "setup": "New Setup Test",
-      "delivery": "New Punchline Test",
-      "destination": "userJokes",
-      "id": 4
+      "category": "Knock Knock",
+      "setup": "Knock knock.  Who's there? Annie. Anni who?...\n",
+      "delivery": "Annie thing you can do, I can do too!",
+      "id": 8
     },
     {
       "name": "test",
       "category": "test",
       "setup": "test",
       "delivery": "test",
-      "destination": "userJokes",
-      "id": 5
-    },
-    {
-      "name": "Spongebob",
-      "category": "test cat",
-      "setup": "test setup",
-      "delivery": "test punchline",
-      "destination": "userJokes",
-      "id": 6
-    },
-    {
-      "name": "Hynek",
-      "category": "Knock knock",
-      "setup": "boooo",
-      "delivery": "booo hooo waaaaaa",
-      "destination": "userJokes",
-      "id": 7
-    },
-    {
-      "name": "Connor",
-      "category": "Knock Knock",
-      "setup": "Knock knock.  Who's there? Annie. Anni who?...\n",
-      "delivery": "Annie thing you can do, I can do too!",
-      "id": 8
+      "id": 9
     }
   ],
   "likeCounter": [
     {
       "id": 1,
       "destination": "likeCounter",
-      "total": "61"
+      "total": "68"
     }
   ],
   "users": [
@@ -211,30 +170,6 @@
       "id": 29
     },
     {
-      "userName": "testname",
-      "password": "testpassword",
-      "bookmarks": [],
-      "id": 30
-    },
-    {
-      "userName": "Connor",
-      "password": "test",
-      "bookmarks": [],
-      "id": 31
-    },
-    {
-      "userName": "Connor",
-      "password": "test2",
-      "bookmarks": [],
-      "id": 32
-    },
-    {
-      "userName": "Connor",
-      "password": "test3",
-      "bookmarks": [],
-      "id": 33
-    },
-    {
       "userName": "newTestAccount",
       "password": "newTestPassword",
       "bookmarks": [
@@ -260,6 +195,126 @@
         }
       ],
       "id": 34
+    },
+    {
+      "userName": "Throwaway",
+      "password": "password",
+      "bookmarks": [
+        {
+          "category": "Christmas",
+          "setup": "What kind of motorbike does Santa ride?",
+          "delivery": "A Holly Davidson!"
+        },
+        {
+          "category": "Programming",
+          "setup": "Why did the Python programmer not respond to the foreign mails he got?",
+          "delivery": "Because his interpreter was busy collecting garbage."
+        },
+        {
+          "category": "Programming",
+          "setup": "why do python programmers wear glasses?",
+          "delivery": "Because they can't C."
+        },
+        {
+          "category": "Pun",
+          "setup": "What happened to the man who got behind on payments to his exorcist?",
+          "delivery": "He got repossessed."
+        },
+        {
+          "category": "Spooky",
+          "setup": "Why do ghosts go on diets?",
+          "delivery": "So they can keep their ghoulish figures."
+        },
+        {
+          "category": "Pun",
+          "setup": "Which is faster, Hot or cold?",
+          "delivery": "Hot, because you can catch a cold"
+        },
+        {
+          "category": "Pun",
+          "setup": "To prove he was right, the flat-earther walked to the end of the Earth.",
+          "delivery": "He eventually came around."
+        },
+        {
+          "category": "Programming",
+          "setup": "How can you tell an extroverted programmer?",
+          "delivery": "He looks at YOUR shoes when he's talking."
+        },
+        {
+          "category": "Spooky",
+          "setup": "What does a turkey dress up as for Halloween?",
+          "delivery": "A gobblin'!"
+        },
+        {
+          "category": "Spooky",
+          "setup": "What is in a ghost's nose?",
+          "delivery": "Boo-gers."
+        },
+        {
+          "category": "Spooky",
+          "setup": "What is in a ghost's nose?",
+          "delivery": "Boo-gers."
+        },
+        {
+          "category": "Spooky",
+          "setup": "What's it like to be kissed by a vampire?",
+          "delivery": "It's a pain in the neck."
+        },
+        {
+          "category": "Programming",
+          "setup": "What is the best prefix for global variables?",
+          "delivery": "//"
+        },
+        {
+          "category": "Christmas",
+          "setup": "Why couldn't the skeleton go to the Christmas party?",
+          "delivery": "Because he had no body to go with!"
+        },
+        {
+          "category": "Programming",
+          "setup": "Why is 6 afraid of 7 in hexadecimal Canada?",
+          "delivery": "Because 7 8 9 A?"
+        },
+        {
+          "category": "Programming",
+          "setup": "Hey, wanna hear a joke?",
+          "delivery": "Parsing HTML with regex."
+        }
+      ],
+      "id": 35
+    },
+    {
+      "userName": "Connork97",
+      "password": "imconnor",
+      "bookmarks": [],
+      "id": 36
+    },
+    {
+      "userName": "newConnor",
+      "password": "imconnor",
+      "bookmarks": [
+        {
+          "category": "Programming",
+          "setup": "Why do programmers prefer using the dark mode?",
+          "delivery": "Because light attracts bugs."
+        },
+        {
+          "category": "Programming",
+          "setup": ".NET developers are picky when it comes to food.",
+          "delivery": "They only like chicken NuGet."
+        },
+        {
+          "category": "Pun",
+          "setup": "Why did the banana go see a doctor?",
+          "delivery": "Because it wasn't peeling well."
+        },
+        {
+          "category": "Spooky",
+          "setup": "Why didn't the skeleton go for prom?",
+          "delivery": "Because it had nobody."
+        }
+      ],
+      "id": 37
     }
   ]
 }

@@ -3,10 +3,10 @@
 
 Create Basic HTML Structure - COMPLETE
 Fill it in with Divs/Forms/Title/etc - COMPLETE
-Little CSS
+Little CSS - COMPLETE
 Fetch JavaScript Data and Render On Page (randomly) - COMPLETE (for two liners)
 Add Buttons to Render New Joke - COMPLETE (for two liners)
-Add Function to Hide Punch Line for Two Liners
+Add Function to Hide Punch Line for Two Liners - COMPLETE
 Reveal Punchline Button/Hover/whatever - COMPLETE
 Add Upvote/DownVote Buttons - COMPLETE
 Add Bookmark Button - COMPLETE
@@ -16,7 +16,7 @@ Add Joke Submission Form - COMPLETE (for two liners)
     -Punchline
         -Note: Either the Setup or the Punchline will need to be optional in case of one liner joke
     -Category
-Joke Request Form
+Joke Request Form - COMPLETE
     -Dropdown Selections for Categories
     -Or a Checklist
     -?
@@ -28,7 +28,7 @@ Joke Request Form
 
 Maybe a Dark/Light Mode Toggle Event Listener?
 
-Add Font Awesome Icons for Buttons, etc
+Add Font Awesome Icons for Buttons, etc - COMPLETE
 
 For Reference:  These Functions have been consolidated into one function, "postJoke"
 // const postBookmarkedJoke = (bookmarkedJokePost) => {

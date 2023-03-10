@@ -1,6 +1,8 @@
 // Base URLs
 const JOKE_URL = "https://v2.jokeapi.dev/joke/";
 const LOCAL_URL = "http://localhost:3000/";
+const USERJOKES_URL = "http://localhost:3000/userJokes/";
+const LIKES_URL = "http://localhost:3000/likeCounter/1";
 const USERS_URL = "http://localhost:3000/users/";
 
 // Global Joke Display Variables
@@ -41,7 +43,7 @@ const fetchAllUsers = () => {
 }
 
 const fetchLikes = () => {
-    fetch(LOCAL_URL + "likeCounter/1")
+    fetch(LIKES_URL)
     .then((response) => response.json())
     .then((data) => {
         likeCounter.textContent = data.total;
@@ -50,31 +52,28 @@ const fetchLikes = () => {
 }
 
 // User Account Creation and Login Functions
+
 let accountExists = false;
-console.log(accountExists);
 
 createAccountForm.addEventListener('submit', (event) => {
     allUsersArr[0].forEach((userObj) => {
         if(userObj.userName.includes(event.target.newUserName.value)) {
-            console.log(userObj.userName);
             accountExists = true;
         }
     });
-    console.log(accountExists);
     if (accountExists) {
         window.alert("Sorry, this account already exists.  Please choose a new username.");
     } else if (accountExists == false && event.target.newUserName.value.includes(" ") === false && event.target.newPassword.value.includes(" ") === false){
-        console.log(accountExists);
         const newUser = {
-        userName: event.target.newUserName.value,
-        password: event.target.newPassword.value,
-        bookmarks: []
-    }
-    postNewUser(newUser);
-    displayUser(newUser);
-    window.alert("Account successfully created!");
-    createAccountForm.reset();
-    event.preventDefault();
+            userName: event.target.newUserName.value,
+            password: event.target.newPassword.value,
+            bookmarks: []
+        }
+        postNewUser(newUser);
+        displayUser(newUser);
+        window.alert("Account successfully created!");
+        createAccountForm.reset();
+        event.preventDefault();
 } else if (accountExists == false && (event.target.newUserName.value.includes(" ") === true || event.target.newPassword.value.includes(" ") === true)) {
     window.alert("Please do not use spaces in your username or password.")
 }
@@ -92,7 +91,6 @@ const postNewUser = (newUser) => {
     .then((userObj) => {
         console.log("Success:", userObj);
         currentUserArr.push(userObj);
-        // fetchUserAccounts();
     })
     .catch((error) => console.error(error))
 }
@@ -106,6 +104,7 @@ loginForm.addEventListener('submit', (event) => {
     loginForm.reset();
     event.preventDefault();
 })
+
 let alerted = false;
 
 const verifyLogin = (userName, userPassword) => {
@@ -134,7 +133,6 @@ const displayLoggedIn = (user) => {
     displayedUser.textContent = "Welcome back to JokeBook, ";
     userInfoDiv.appendChild(displayedUser).append(currentUser);
     fetchBookmarks();
-    // enableBookmark(user);
 }
 
 const displayUser = (user) => {
@@ -146,45 +144,35 @@ const displayUser = (user) => {
     const displayedUser = document.createElement('h3');
     displayedUser.textContent = "Welcome to JokeBook, ";
     userInfoDiv.appendChild(displayedUser).append(currentUser);
-    // enableBookmark(user);
 }
 
 // Personal User Bookmark Features
 
-// const enableBookmark = (user) => {
-    bookmarkBtn.addEventListener('click', () => {
-        if (userInfoDiv.textContent.includes("Welcome") == false) {
-            window.alert("Please login to bookmark jokes."); 
-        } else if(jokeSetup.textContent === "") {
-            window.alert("Please select a joke to display.");
-        } else if(bookmarkBtn.classList.contains("clicked") === false){
-            const bookmarkedJoke = {
-                category: jokeCat.category,
-                setup: jokeSetup.textContent,
-                delivery: jokePunchline.textContent,
-                // destination: user.userName
-            }
-            currentUserArr[0].bookmarks.push(bookmarkedJoke);
-            patchCurrentUser();
-            console.log(bookmarkedJoke);
-            bookmarkBtn.classList.add("clicked", "fa-solid", "gold");
-        } else {
-            window.alert("You've already bookmarked this joke.");
+bookmarkBtn.addEventListener('click', () => {
+    if (userInfoDiv.textContent.includes("Welcome") == false) {
+        window.alert("Please login to bookmark jokes."); 
+    } else if(jokeSetup.textContent === "") {
+        window.alert("Please select a joke to display.");
+    } else if(bookmarkBtn.classList.contains("clicked") === false){
+        const bookmarkedJoke = {
+            category: jokeCat.category,
+            setup: jokeSetup.textContent,
+            delivery: jokePunchline.textContent,
         }
-    })
-// }
+        currentUserArr[0].bookmarks.push(bookmarkedJoke);
+        bookmarksArr[0].push(bookmarkedJoke);
+        patchCurrentUser();
+        bookmarkBtn.classList.add("clicked", "fa-solid", "gold");
+    } else {
+        window.alert("You've already bookmarked this joke.");
+    }
+})
 
 const fetchBookmarks = () => {
     fetch(USERS_URL + currentUserArr[0].id)
     .then((response) => response.json())
     .then((userObj) => {
         bookmarksArr.push(userObj.bookmarks);
-    })
-}
-
-const filterBookmarks = (category, bookmarksArr) => {
-    return bookmarksArr.filter((bookmark) => {
-        return bookmark.category === category;
     })
 }
 
@@ -195,6 +183,12 @@ bookmarkDropdown.addEventListener('change', (event) => {
         displayBookmarks(bookmark);
     })
 })
+
+const filterBookmarks = (category, bookmarksArr) => {
+    return bookmarksArr.filter((bookmark) => {
+        return bookmark.category === category;
+    })
+}
 
 const displayBookmarks = (bookmark) => {
     const newBookmarkDiv = document.createElement('div');
@@ -214,19 +208,80 @@ const patchCurrentUser = () => {
         body: JSON.stringify(currentUserArr[0]),
     })
     .then((response) => response.json())
-    .then((userObj) => console.log("Success:", userObj))
+    .then((userObj) => {
+        console.log("Success:", userObj);
+    })
     .catch((error) => console.error(error))
+}
+
+// Like/Dislike Functions
+
+likeBtn.addEventListener('click', () => {
+    let totalLikes = Number(likeCounter.textContent);
+    if(likeBtn.classList.contains("clicked") === false && dislikeBtn.classList.contains("clicked") === true) {
+        totalLikes += 2;
+        likeCounter.textContent = Number(totalLikes);
+        likeBtn.classList.add("clicked", "fa-solid");
+        dislikeBtn.classList.remove("clicked", "fa-solid"); 
+        createNewLike();
+    } else if(likeBtn.classList.contains("clicked") === false){
+        totalLikes += 1;
+        likeCounter.textContent = Number(totalLikes);
+        likeBtn.classList.add("clicked", "fa-solid");   
+        createNewLike();
+    } else {
+        window.alert("You've already liked this joke!");
+    }
+})
+
+dislikeBtn.addEventListener('click', () => {
+    let totalLikes = Number(likeCounter.textContent);
+    if(dislikeBtn.classList.contains("clicked") === false && likeBtn.classList.contains("clicked") === true) {
+        totalLikes -= 2;
+        likeCounter.textContent = Number(totalLikes);
+        dislikeBtn.classList.add("clicked", "fa-solid");
+        likeBtn.classList.remove("clicked", "fa-solid"); 
+        createNewLike();
+    } else if(dislikeBtn.classList.contains("clicked") === false){
+        totalLikes -= 1;
+        likeCounter.textContent = Number(totalLikes);
+        dislikeBtn.classList.add("clicked", "fa-solid");   
+        createNewLike();
+    }  else {
+        window.alert("You've already disliked this joke.");
+    }
+})
+
+const createNewLike = () => {
+    const newLike = {
+        destination: "likeCounter",
+        total: likeCounter.textContent,
+    }
+    patchTotal(newLike);    
+}
+
+const patchTotal = (patchObj) => {
+    fetch(LIKES_URL, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(patchObj),
+    })
+    // Keep getting errors, not sure why.  Code runs fine though.
+    .then((response) => response.json())
+    .then((counterObj) => {
+        console.log("Success:", counterObj)
+    })
+    .then((error) => console.error(error))
 }
 
 // Functions to Display Jokes After Clicking Category Buttons
 
 categorySpan.forEach((span) => {
     span.addEventListener('click', (event) => {
-        console.log(event.target.id);
-        console.log(event.target.classList)
         fetchJoke(span.id);
         span.classList.remove('selected');
-        console.log(span.classList)
         setTimeout(() => {
             categorySpan.forEach((span) => {
                 event.target.classList.add('selected');
@@ -284,7 +339,7 @@ newJokeForm.addEventListener('submit', (event) => {
 })
 
 const postJoke = (jokeToPost) => {
-    fetch(LOCAL_URL + "userJokes", {
+    fetch(USERJOKES_URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -298,72 +353,9 @@ const postJoke = (jokeToPost) => {
     .catch((error) => console.error(error))
 }
 
-// Like/Dislike Functions
-
-likeBtn.addEventListener('click', () => {
-    let totalLikes = Number(likeCounter.textContent);
-    if(likeBtn.classList.contains("clicked") === false && dislikeBtn.classList.contains("clicked") === true) {
-        totalLikes += 2;
-        likeCounter.textContent = Number(totalLikes);
-        likeBtn.classList.add("clicked", "fa-solid");
-        dislikeBtn.classList.remove("clicked", "fa-solid"); 
-        createNewLike();
-    } else if(likeBtn.classList.contains("clicked") === false){
-        totalLikes += 1;
-        likeCounter.textContent = Number(totalLikes);
-        likeBtn.classList.add("clicked", "fa-solid");   
-        createNewLike();
-    } else {
-        window.alert("You've already liked this joke!");
-    }
-})
-
-dislikeBtn.addEventListener('click', () => {
-    let totalLikes = Number(likeCounter.textContent);
-    if(dislikeBtn.classList.contains("clicked") === false && likeBtn.classList.contains("clicked") === true) {
-        totalLikes -= 2;
-        likeCounter.textContent = Number(totalLikes);
-        dislikeBtn.classList.add("clicked", "fa-solid");
-        likeBtn.classList.remove("clicked", "fa-solid"); 
-        createNewLike();
-    } else if(dislikeBtn.classList.contains("clicked") === false){
-        totalLikes -= 1;
-        likeCounter.textContent = Number(totalLikes);
-        dislikeBtn.classList.add("clicked", "fa-solid");   
-        createNewLike();
-    }  else {
-        window.alert("You've already disliked this joke.");
-    }
-})
-
-const createNewLike = () => {
-    const newLike = {
-        destination: "likeCounter",
-        total: likeCounter.textContent,
-    }
-    patchTotal(newLike);    
-}
-
-const patchTotal = (patchObj) => {
-    fetch(LOCAL_URL + "likeCounter/1", {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(patchObj),
-    })
-    // Keep getting errors, not sure why.  Code runs fine though.
-    .then((response) => response.json())
-    .then((counterObj) => {
-        console.log(counterObj)
-    })
-    .then((error) => console.error(error))
-}
-
 // Page Initialization Function
 
 const init = () => {
-    // fetchBookmarkCat();
     fetchLikes();
     fetchAllUsers();
 }
