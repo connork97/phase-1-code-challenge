@@ -2,7 +2,7 @@
 const JOKE_URL = "https://v2.jokeapi.dev/joke/";
 const LOCAL_URL = "http://localhost:3000/";
 const BOOKMARK_URL = "http://localhost:3000/bookmarkedJokes";
-const USERS_URL = "http://localhost:3000/users";
+const USERS_URL = "http://localhost:3000/users/";
 
 // Global Variables
 // const jokeCat = document.getElementById('joke-category-span');
@@ -23,6 +23,7 @@ const jokeLibDiv = document.getElementById('joke-library-display');
 // User Login Functions
 
 const createAccountForm = document.getElementById('create-account-form');
+let currentUserArr = [];
 
 createAccountForm.addEventListener('submit', (event) => {
     const newUser = {
@@ -47,16 +48,122 @@ const postNewUser = (newUser) => {
     .then((response) => response.json())
     .then((userObj) => {
         console.log("Success:", userObj);
+        currentUserArr.push(userObj);
+        // fetchUserAccounts();
     })
     .catch((error) => console.error(error))
 }
 
-const displayUser = (user) => {
-    const userInfoDiv = document.getElementById('userInfoDiv');
+// let newUsersArr = [];
+
+// const fetchUserAccounts = () => {
+//     fetch(USERS_URL)
+//     .then((response) => response.json())
+//     .then((usersArr) => {
+//         usersArr.forEach((userObj) => {
+//             newUsersArr.push(userObj);
+//         })
+//     })
+// }
+
+let allUsersArr = [];
+console.log(allUsersArr);
+
+const fetchAllUsers = () => {
+    fetch(USERS_URL)
+    .then((response) => response.json())
+    .then((usersArr) => {
+        allUsersArr.push(usersArr);
+    })
+}
+
+const loginForm = document.getElementById('login-form');
+loginForm.addEventListener('submit', (event) => {
+    const userName = event.target.userName.value;
+    userName.userName = event.target.userName.value;
+    const userPassword = event.target.password.value;
+    userPassword.password = event.target.password.value;
+    findAccount(userName, userPassword);
+    loginForm.reset();
+    event.preventDefault();
+})
+
+const findAccount = (userName, userPassword) => {
+    console.log(userName);
+    allUsersArr[0].forEach((userObj) => {
+        if(userObj.userName == userName && userObj.password == userPassword) {
+            console.log("holy shit it works");
+            currentUserArr.push(userObj);
+            displayLoggedIn(userName);
+        } else {
+            console.log("This account doesn't exist.  Please try again.")
+        }
+    });
+}
+
+const userInfoDiv = document.getElementById('userInfoDiv');
+
+const displayLoggedIn = (user) => {
     userInfoDiv.innerHTML = "";
+    const currentUser = document.createElement('span');
+    currentUser.textContent = user;
+    currentUser.id = user;
+    currentUser.userName = user;
     const displayedUser = document.createElement('h3');
-    displayedUser.textContent = "Welcome, " + user.userName + "!";
-    userInfoDiv.appendChild(displayedUser);
+    displayedUser.textContent = "Welcome back, ";
+    userInfoDiv.appendChild(displayedUser).append(currentUser);
+    enableBookmark(user);
+}
+
+const displayUser = (user) => {
+    userInfoDiv.innerHTML = "";
+    const currentUser = document.createElement('span');
+    currentUser.textContent = user.userName;
+    currentUser.id = user.userName;
+    currentUser.userName = user.userName;
+    const displayedUser = document.createElement('h3');
+    displayedUser.textContent = "Welcome, ";
+    userInfoDiv.appendChild(displayedUser).append(currentUser);
+    enableBookmark(user);
+}
+
+const enableBookmark = (user) => {
+    bookmarkBtn.addEventListener('click', () => {
+        if(jokeSetup.textContent === "") {
+            window.alert("Please select a joke to display.");
+        } else if (user.userName === false) {
+            window.alert("Please login to bookmark jokes.");
+        } else if(bookmarkBtn.classList.contains("clicked") === false){
+            const bookmarkedJoke = {
+                category: jokeCat.category,
+                setup: jokeSetup.textContent,
+                delivery: jokePunchline.textContent,
+                // destination: user.userName
+            }
+            currentUserArr[0].bookmarks.push(bookmarkedJoke);
+            patchCurrentUser();
+            console.log(bookmarkedJoke);
+            bookmarkBtn.classList.add("clicked", "fa-solid", "gold");
+            setTimeout(() => {
+                window.alert("Joke saved to your library!");
+            }, 1000);
+        } else {
+            window.alert("You've already bookmarked this joke.");
+        }
+    })
+}
+
+const patchCurrentUser = () => {
+    fetch(USERS_URL + currentUserArr[0].id,{
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(currentUserArr[0]),
+    })
+    .then((response) => response.json())
+    .then((userObj) => console.log("Success:", userObj))
+    .catch((error) => console.error(error))
 }
 
 // Functions to Display Jokes:
@@ -74,7 +181,6 @@ categorySpan.forEach((span) => {
                 event.target.classList.add('selected');
             })
         }, 1)
-        // resetBtns();
     })
 })
 
@@ -87,17 +193,7 @@ const fetchJoke = (category = "Any") => {
     .catch((error) => console.error(error))
 }
 
-// const clickForJoke = (category) => {
-//     const newJokeBtn = document.getElementById('new-joke-btn');
-//     newJokeBtn.addEventListener('click', () => {
-//         // displayJoke(data);
-//         fetchJoke(category);
-//         }
-//     )
-// }
-
 const displayJoke = (data) => {
-    // jokeCat.textContent = data.category;
     jokeCat.category = data.category;
     jokeSetup.textContent = data.setup;
     jokePunchline.textContent = data.delivery;
@@ -118,8 +214,6 @@ const resetBtns = () => {
     dislikeBtn.classList.remove("fa-solid", "clicked");
     bookmarkBtn.classList.remove("fa-solid", "gold", "clicked");
     jokePunchline.classList.remove('revealed-text');
-
-    // .classList.remove('selected');
 }
 
 // New Joke Form
@@ -176,25 +270,27 @@ dislikeBtn.addEventListener('click', () => {
     }
 })
 
-bookmarkBtn.addEventListener('click', () => {
-    if(jokeSetup.textContent === "") {
-        window.alert("Please select a joke to display.")
-    } else if(bookmarkBtn.classList.contains("clicked") === false){
-        const bookmarkedJoke = {
-            category: jokeCat.category,
-            setup: jokeSetup.textContent,
-            delivery: jokePunchline.textContent,
-            destination: "bookmarkedJokes"
-        }
-        postJoke(bookmarkedJoke);
-        bookmarkBtn.classList.add("clicked", "fa-solid", "gold");
-        setTimeout(() => {
-            window.alert("Joke saved to your library!");
-        }, 1000);
-    } else {
-        window.alert("You've already bookmarked this joke.");
-    }
-})
+// FUNCTIONAL GENERAL BOOKMARK FUNCTION
+
+// bookmarkBtn.addEventListener('click', () => {
+//     if(jokeSetup.textContent === "") {
+//         window.alert("Please select a joke to display.")
+//     } else if(bookmarkBtn.classList.contains("clicked") === false){
+//         const bookmarkedJoke = {
+//             category: jokeCat.category,
+//             setup: jokeSetup.textContent,
+//             delivery: jokePunchline.textContent,
+//             destination: "bookmarkedJokes"
+//         }
+//         postJoke(bookmarkedJoke);
+//         bookmarkBtn.classList.add("clicked", "fa-solid", "gold");
+//         setTimeout(() => {
+//             window.alert("Joke saved to your library!");
+//         }, 1000);
+//     } else {
+//         window.alert("You've already bookmarked this joke.");
+//     }
+// })
 
 const createNewLike = () => {
     const newLike = {
@@ -286,17 +382,11 @@ const displayBookmarks = (bookmark) => {
     bookmarkPunchline.textContent = bookmark.delivery;
     jokeLibDiv.appendChild(newBookmarkDiv).append(bookmarkSetup, bookmarkPunchline);
 }
-    // const bookmarkCat = document.createElement('p');
-    // bookmarkCat.textContent = "Category: " + bookmark.category;
-    // bookmarkCat.classList.add("joke-label");
-    // bookmarkSetup.classList.add("joke-label");
-    // bookmarkPunchline.classList.add("joke-label");
-    // newBookmarkDiv.appendChild(bookmarkCat);
 
 const init = () => {
     fetchBookmarkCat();
     fetchLikes();
-    // clickForJoke();
+    fetchAllUsers();
 }
 
 init();

@@ -215,6 +215,13 @@
       "delivery": "So they can keep their ghoulish figures.",
       "destination": "bookmarkedJokes",
       "id": 32
+    },
+    {
+      "category": "Spooky",
+      "setup": "Why didn't the skeleton go for prom?",
+      "delivery": "Because it had nobody.",
+      "destination": "bookmarkedJokes",
+      "id": 33
     }
   ],
   "userJokes": [
@@ -286,43 +293,60 @@
     {
       "id": 1,
       "destination": "likeCounter",
-      "total": "35"
+      "total": "38"
     }
   ],
   "users": [
     {
-      "bookmarks": [],
-      "id": 1
+      "userName": "please work",
+      "password": "isaidplease",
+      "bookmarks": [
+        {
+          "category": "Christmas",
+          "setup": "Whats the Grinchs least favorite band?",
+          "delivery": "The Who."
+        },
+        {
+          "category": "Spooky",
+          "setup": "What is in a ghost's nose?",
+          "delivery": "Boo-gers."
+        },
+        {
+          "category": "Programming",
+          "setup": "Why did the JavaScript heap close shop?",
+          "delivery": "It ran out of memory."
+        }
+      ],
+      "id": 23
     },
     {
-      "userName": "connor",
-      "password": "test123",
-      "bookmarks": [],
-      "id": 2
+      "userName": "new_account",
+      "password": "maybewereworking",
+      "bookmarks": [
+        {
+          "category": "Christmas",
+          "setup": "Whats the Grinchs least favorite band?",
+          "delivery": "The Who."
+        }
+      ],
+      "id": 24
     },
     {
-      "userName": "connor",
-      "password": "test2",
-      "bookmarks": [],
-      "id": 3
-    },
-    {
-      "userName": "connor",
-      "password": "test2",
-      "bookmarks": [],
-      "id": 4
-    },
-    {
-      "userName": "connor",
-      "password": "test3",
-      "bookmarks": [],
-      "id": 5
-    },
-    {
-      "userName": "connor",
-      "password": "test4",
-      "bookmarks": [],
-      "id": 6
+      "userName": "test",
+      "password": "123",
+      "bookmarks": [
+        {
+          "category": "Christmas",
+          "setup": "Why couldn't the skeleton go to the Christmas party?",
+          "delivery": "Because he had no body to go with!"
+        },
+        {
+          "category": "Programming",
+          "setup": "How do you generate a random string?",
+          "delivery": "Put a Windows user in front of Vim and tell them to exit."
+        }
+      ],
+      "id": 25
     }
   ]
 }
