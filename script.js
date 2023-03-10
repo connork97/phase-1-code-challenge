@@ -112,7 +112,8 @@ const displayLoggedIn = (user) => {
     const displayedUser = document.createElement('h3');
     displayedUser.textContent = "Welcome back, ";
     userInfoDiv.appendChild(displayedUser).append(currentUser);
-    enableBookmark(user);
+    fetchBookmarks();
+    // enableBookmark(user);
 }
 
 const displayUser = (user) => {
@@ -151,6 +152,46 @@ const enableBookmark = (user) => {
             window.alert("You've already bookmarked this joke.");
         }
     })
+}
+
+let bookmarksArr = [];
+
+const fetchBookmarks = () => {
+    fetch(USERS_URL + currentUserArr[0].id)
+    .then((response) => response.json())
+    .then((userObj) => {
+        bookmarksArr.push(userObj.bookmarks);
+    })
+}
+
+const filterBookmarks = (category, bookmarksArr) => {
+    return bookmarksArr.filter((bookmark) => {
+        return bookmark.category === category;
+    })
+}
+const bookmarkDropdown = document.getElementById('joke-dropdown');
+
+bookmarkDropdown.addEventListener('change', (event) => {
+    jokeLibDiv.innerHTML = "";
+    const filteredBookmarks = filterBookmarks(event.target.value, bookmarksArr[0]);
+    filteredBookmarks.forEach((bookmark) => {
+        displayBookmarks(bookmark);
+    })
+})
+
+// const filterBookmarks = (category, bookmarksArray) => {
+//     return bookmarksArray.filter((bookmark) => {
+//         return bookmark.category === category;
+//     })
+// }
+
+const displayBookmarks = (bookmark) => {
+    const newBookmarkDiv = document.createElement('div');
+    const bookmarkSetup = document.createElement('p');
+    const bookmarkPunchline = document.createElement('p');
+    bookmarkSetup.textContent = bookmark.setup;
+    bookmarkPunchline.textContent = bookmark.delivery;
+    jokeLibDiv.appendChild(newBookmarkDiv).append(bookmarkSetup, bookmarkPunchline);
 }
 
 const patchCurrentUser = () => {
@@ -346,45 +387,38 @@ const postJoke = (jokeToPost) => {
 
 // Sort Through By Category
 
-const bookmarkDropdown = document.getElementById('joke-dropdown');
 
-let newBookmarksArr = [];
+// let newBookmarksArr = [];
 
-bookmarkDropdown.addEventListener('change', (event) => {
-    jokeLibDiv.innerHTML = "";
-    const filteredBookmarks = filterBookmarks(event.target.value, newBookmarksArr);
-    filteredBookmarks.forEach((bookmark) => {
-        displayBookmarks(bookmark);
-    })
-})
+// Catch All Bookmark Fetch and Accompanying Filter/Display of said Bookmarks
 
-const fetchBookmarkCat = () => {
-    fetch(BOOKMARK_URL)
-    .then((response) => response.json())
-    .then((bookmarkArr) => {
-        bookmarkArr.forEach((bookmarkObj) => {
-            newBookmarksArr.push(bookmarkObj);
-        })
-    })
-}
+// const fetchBookmarkCat = (user) => {
+//     fetch(USERS_URL + "")
+//     .then((response) => response.json())
+//     .then((bookmarkArr) => {
+//         bookmarkArr.forEach((bookmarkObj) => {
+//             newBookmarksArr.push(bookmarkObj);
+//         })
+//     })
+// }
 
-const filterBookmarks = (category, bookmarksArray) => {
-    return bookmarksArray.filter((bookmark) => {
-        return bookmark.category === category;
-    })
-}
+// const filterBookmarks = (category, bookmarksArray) => {
+//     return bookmarksArray.filter((bookmark) => {
+//         return bookmark.category === category;
+//     })
+// }
 
-const displayBookmarks = (bookmark) => {
-    const newBookmarkDiv = document.createElement('div');
-    const bookmarkSetup = document.createElement('p');
-    const bookmarkPunchline = document.createElement('p');
-    bookmarkSetup.textContent = bookmark.setup;
-    bookmarkPunchline.textContent = bookmark.delivery;
-    jokeLibDiv.appendChild(newBookmarkDiv).append(bookmarkSetup, bookmarkPunchline);
-}
+// const displayBookmarks = (bookmark) => {
+//     const newBookmarkDiv = document.createElement('div');
+//     const bookmarkSetup = document.createElement('p');
+//     const bookmarkPunchline = document.createElement('p');
+//     bookmarkSetup.textContent = bookmark.setup;
+//     bookmarkPunchline.textContent = bookmark.delivery;
+//     jokeLibDiv.appendChild(newBookmarkDiv).append(bookmarkSetup, bookmarkPunchline);
+// }
 
 const init = () => {
-    fetchBookmarkCat();
+    // fetchBookmarkCat();
     fetchLikes();
     fetchAllUsers();
 }
