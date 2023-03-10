@@ -160,7 +160,7 @@ bookmarkBtn.addEventListener('click', () => {
             delivery: jokePunchline.textContent,
         }
         currentUserArr[0].bookmarks.push(bookmarkedJoke);
-        bookmarksArr[0].push(bookmarkedJoke);
+        bookmarksArr.push(bookmarkedJoke);
         patchCurrentUser();
         bookmarkBtn.classList.add("clicked", "fa-solid", "gold");
     } else {

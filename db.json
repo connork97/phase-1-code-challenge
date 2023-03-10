@@ -20,28 +20,23 @@
       "setup": "test",
       "delivery": "test",
       "id": 9
+    },
+    {
+      "name": "test",
+      "category": "test",
+      "setup": "test",
+      "delivery": "test",
+      "id": 10
     }
   ],
   "likeCounter": [
     {
       "id": 1,
       "destination": "likeCounter",
-      "total": "68"
+      "total": "72"
     }
   ],
   "users": [
-    {
-      "userName": "new_account",
-      "password": "maybewereworking",
-      "bookmarks": [
-        {
-          "category": "Christmas",
-          "setup": "Whats the Grinchs least favorite band?",
-          "delivery": "The Who."
-        }
-      ],
-      "id": 24
-    },
     {
       "userName": "Connor",
       "password": "imconnor",
@@ -146,175 +141,6 @@
       "password": "imderrick",
       "bookmarks": [],
       "id": 28
-    },
-    {
-      "userName": "Phil",
-      "password": "imphil",
-      "bookmarks": [
-        {
-          "category": "Christmas",
-          "setup": "Why did Santa's helper see the doctor?",
-          "delivery": "Because he had a low \"elf\" esteem!"
-        },
-        {
-          "category": "Programming",
-          "setup": "So what's a set of predefined steps the government might take to preserve the environment?",
-          "delivery": "An Al-Gore-ithm."
-        },
-        {
-          "category": "Misc",
-          "setup": "Mom asked me where I'm taking her to go out to eat for mother's day.",
-          "delivery": "I told her, \"We already have food in the house\"."
-        }
-      ],
-      "id": 29
-    },
-    {
-      "userName": "newTestAccount",
-      "password": "newTestPassword",
-      "bookmarks": [
-        {
-          "category": "Spooky",
-          "setup": "Why did the ghost go inside the bar?",
-          "delivery": "For the boos."
-        },
-        {
-          "category": "Christmas",
-          "setup": "Whats the Grinchs least favorite band?",
-          "delivery": "The Who."
-        },
-        {
-          "category": "Pun",
-          "setup": "What time did the man go to the dentist?",
-          "delivery": "Tooth hurt-y."
-        },
-        {
-          "category": "Programming",
-          "setup": ".NET developers are picky when it comes to food.",
-          "delivery": "They only like chicken NuGet."
-        }
-      ],
-      "id": 34
-    },
-    {
-      "userName": "Throwaway",
-      "password": "password",
-      "bookmarks": [
-        {
-          "category": "Christmas",
-          "setup": "What kind of motorbike does Santa ride?",
-          "delivery": "A Holly Davidson!"
-        },
-        {
-          "category": "Programming",
-          "setup": "Why did the Python programmer not respond to the foreign mails he got?",
-          "delivery": "Because his interpreter was busy collecting garbage."
-        },
-        {
-          "category": "Programming",
-          "setup": "why do python programmers wear glasses?",
-          "delivery": "Because they can't C."
-        },
-        {
-          "category": "Pun",
-          "setup": "What happened to the man who got behind on payments to his exorcist?",
-          "delivery": "He got repossessed."
-        },
-        {
-          "category": "Spooky",
-          "setup": "Why do ghosts go on diets?",
-          "delivery": "So they can keep their ghoulish figures."
-        },
-        {
-          "category": "Pun",
-          "setup": "Which is faster, Hot or cold?",
-          "delivery": "Hot, because you can catch a cold"
-        },
-        {
-          "category": "Pun",
-          "setup": "To prove he was right, the flat-earther walked to the end of the Earth.",
-          "delivery": "He eventually came around."
-        },
-        {
-          "category": "Programming",
-          "setup": "How can you tell an extroverted programmer?",
-          "delivery": "He looks at YOUR shoes when he's talking."
-        },
-        {
-          "category": "Spooky",
-          "setup": "What does a turkey dress up as for Halloween?",
-          "delivery": "A gobblin'!"
-        },
-        {
-          "category": "Spooky",
-          "setup": "What is in a ghost's nose?",
-          "delivery": "Boo-gers."
-        },
-        {
-          "category": "Spooky",
-          "setup": "What is in a ghost's nose?",
-          "delivery": "Boo-gers."
-        },
-        {
-          "category": "Spooky",
-          "setup": "What's it like to be kissed by a vampire?",
-          "delivery": "It's a pain in the neck."
-        },
-        {
-          "category": "Programming",
-          "setup": "What is the best prefix for global variables?",
-          "delivery": "//"
-        },
-        {
-          "category": "Christmas",
-          "setup": "Why couldn't the skeleton go to the Christmas party?",
-          "delivery": "Because he had no body to go with!"
-        },
-        {
-          "category": "Programming",
-          "setup": "Why is 6 afraid of 7 in hexadecimal Canada?",
-          "delivery": "Because 7 8 9 A?"
-        },
-        {
-          "category": "Programming",
-          "setup": "Hey, wanna hear a joke?",
-          "delivery": "Parsing HTML with regex."
-        }
-      ],
-      "id": 35
-    },
-    {
-      "userName": "Connork97",
-      "password": "imconnor",
-      "bookmarks": [],
-      "id": 36
-    },
-    {
-      "userName": "newConnor",
-      "password": "imconnor",
-      "bookmarks": [
-        {
-          "category": "Programming",
-          "setup": "Why do programmers prefer using the dark mode?",
-          "delivery": "Because light attracts bugs."
-        },
-        {
-          "category": "Programming",
-          "setup": ".NET developers are picky when it comes to food.",
-          "delivery": "They only like chicken NuGet."
-        },
-        {
-          "category": "Pun",
-          "setup": "Why did the banana go see a doctor?",
-          "delivery": "Because it wasn't peeling well."
-        },
-        {
-          "category": "Spooky",
-          "setup": "Why didn't the skeleton go for prom?",
-          "delivery": "Because it had nobody."
-        }
-      ],
-      "id": 37
     }
   ]
 }
