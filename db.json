@@ -67,7 +67,7 @@
     {
       "id": 1,
       "destination": "likeCounter",
-      "total": "53"
+      "total": "60"
     }
   ],
   "users": [
@@ -141,6 +141,31 @@
           "category": "Spooky",
           "setup": "Why did the ghost go inside the bar?",
           "delivery": "For the boos."
+        },
+        {
+          "category": "Programming",
+          "setup": "So what's a set of predefined steps the government might take to preserve the environment?",
+          "delivery": "An Al-Gore-ithm."
+        },
+        {
+          "category": "Programming",
+          "setup": "Hey, wanna hear a joke?",
+          "delivery": "Parsing HTML with regex."
+        },
+        {
+          "category": "Programming",
+          "setup": "Why did the programmer jump on the table?",
+          "delivery": "Because debug was on his screen."
+        },
+        {
+          "category": "Pun",
+          "setup": "What kind of car did Whitney Houston drive?",
+          "delivery": "A Hyundaiiiiiiiiiiii"
+        },
+        {
+          "category": "Christmas",
+          "setup": "Why does Santa have three gardens?",
+          "delivery": "So he can 'ho ho ho'!"
         }
       ],
       "id": 26
@@ -162,6 +187,28 @@
       "password": "imderrick",
       "bookmarks": [],
       "id": 28
+    },
+    {
+      "userName": "Phil",
+      "password": "imphil",
+      "bookmarks": [
+        {
+          "category": "Christmas",
+          "setup": "Why did Santa's helper see the doctor?",
+          "delivery": "Because he had a low \"elf\" esteem!"
+        },
+        {
+          "category": "Programming",
+          "setup": "So what's a set of predefined steps the government might take to preserve the environment?",
+          "delivery": "An Al-Gore-ithm."
+        },
+        {
+          "category": "Misc",
+          "setup": "Mom asked me where I'm taking her to go out to eat for mother's day.",
+          "delivery": "I told her, \"We already have food in the house\"."
+        }
+      ],
+      "id": 29
     }
   ]
 }

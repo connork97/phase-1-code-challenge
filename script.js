@@ -89,9 +89,9 @@ loginForm.addEventListener('submit', (event) => {
     loginForm.reset();
     event.preventDefault();
 })
+let alerted = false;
 
 const verifyLogin = (userName, userPassword) => {
-    let alerted = false;
     allUsersArr[0].forEach((userObj) => {
         if(userObj.userName == userName && userObj.password == userPassword) {
             currentUserArr.push(userObj);
@@ -114,10 +114,10 @@ const displayLoggedIn = (user) => {
     currentUser.id = user;
     currentUser.userName = user;
     const displayedUser = document.createElement('h3');
-    displayedUser.textContent = "Welcome back, ";
+    displayedUser.textContent = "Welcome back to JokeBook, ";
     userInfoDiv.appendChild(displayedUser).append(currentUser);
     fetchBookmarks();
-    enableBookmark(user);
+    // enableBookmark(user);
 }
 
 const displayUser = (user) => {
@@ -127,19 +127,19 @@ const displayUser = (user) => {
     currentUser.id = user.userName;
     currentUser.userName = user.userName;
     const displayedUser = document.createElement('h3');
-    displayedUser.textContent = "Welcome, ";
+    displayedUser.textContent = "Welcome to JokeBook, ";
     userInfoDiv.appendChild(displayedUser).append(currentUser);
-    enableBookmark(user);
+    // enableBookmark(user);
 }
 
 // Personal User Bookmark Features
 
-const enableBookmark = (user) => {
+// const enableBookmark = (user) => {
     bookmarkBtn.addEventListener('click', () => {
-        if(jokeSetup.textContent === "") {
+        if (userInfoDiv.textContent.includes("Welcome") == false) {
+            window.alert("Please login to bookmark jokes."); 
+        } else if(jokeSetup.textContent === "") {
             window.alert("Please select a joke to display.");
-        // } else if (document) {
-        //     window.alert("Please login to bookmark jokes."); 
         } else if(bookmarkBtn.classList.contains("clicked") === false){
             const bookmarkedJoke = {
                 category: jokeCat.category,
@@ -155,7 +155,7 @@ const enableBookmark = (user) => {
             window.alert("You've already bookmarked this joke.");
         }
     })
-}
+// }
 
 const fetchBookmarks = () => {
     fetch(USERS_URL + currentUserArr[0].id)
