@@ -16,7 +16,7 @@ h3 {
     margin: 10vh 0 7.5vh 0;
 }
 
-.btn, select, #joke-dropdown, .catSpan {
+.btn, select, #joke-dropdown, .catSpan, #createAccountButton, #loginButton {
     cursor: pointer;
 }
 
@@ -26,7 +26,31 @@ h3 {
 
 #userInfoDiv {
     display: flex;
-    justify-content: space-evenly;
+    justify-content:space-around;
+}
+
+.userInfoLabel {
+    font-size: 2.5rem;
+    margin-bottom: 2vh;
+}
+
+#userInfoDiv input {
+    border-radius: 25px;
+    text-align: center;
+    scale: 1.5;
+    margin: 2vh 0 2vh 0;
+}
+#login-form {
+    width: 373.87px;
+}
+
+#createAccountButton, #loginButton {
+    color: white;
+    background-color: #D12C49;
+    border-radius: 15px;
+    scale: 1.25;
+    padding: 0.5vh 1vh 0.5vh 1vh;
+    margin-top: 1vh;
 }
 
 .userInfo {
@@ -38,12 +62,14 @@ h3 {
 #title {
     font-size: 5rem;
     margin: 7.5vh 0 5vh 0;
+    position: absolute;
 }
 
 #intro {
     font-size: 1.5rem;
-    margin-bottom: 7.5vh;
-    line-height: 2rem;
+    margin: 5vh 0 7.5vh 0;
+    font-size: 2rem;
+    line-height: 3rem;
 }
 
 /* Categories and Joke Display */

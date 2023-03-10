@@ -113,7 +113,7 @@ const displayLoggedIn = (user) => {
     displayedUser.textContent = "Welcome back, ";
     userInfoDiv.appendChild(displayedUser).append(currentUser);
     fetchBookmarks();
-    // enableBookmark(user);
+    enableBookmark(user);
 }
 
 const displayUser = (user) => {
@@ -132,8 +132,8 @@ const enableBookmark = (user) => {
     bookmarkBtn.addEventListener('click', () => {
         if(jokeSetup.textContent === "") {
             window.alert("Please select a joke to display.");
-        } else if (user.userName === false) {
-            window.alert("Please login to bookmark jokes.");
+        // } else if (document) {
+        //     window.alert("Please login to bookmark jokes."); 
         } else if(bookmarkBtn.classList.contains("clicked") === false){
             const bookmarkedJoke = {
                 category: jokeCat.category,

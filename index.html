@@ -10,34 +10,32 @@
 <body>
     <div id="userInfoDiv">
         <form id="create-account-form">
-            <h5 class="userInfo">Create an Account</h5>
+            <h5 class="userInfoLabel">Create an Account</h5>
             <input type="text" placeholder="Enter Username" name="newUserName" required>
-            <br><br>
+            <br>
             <input type="password" placeholder="Enter Password" name="newPassword" required>
-            <br><br>
+            <br>
             <button type="submit" id="createAccountButton">Create Account</button>
         </form>
+        <h1 id="title">JokeBook</h1>
         <form id="login-form">
-            <h5 class="userInfo">Login</h5>
+            <h5 class="userInfoLabel">Login</h5>
             <input type="text" placeholder="Enter Username" name="userName" required>
-            <br><br>
+            <br>
             <input type="password" placeholder="Enter Password" name="password" required>
-            <br><br>
+            <br>
             <button type="submit" id="loginButton">Login</button>
         </form>
     </div>
-    <h1 id="title">JokeBook</h1>
     <h4 id="intro">With help from our friends at <a href="https://sv443.net/jokeapi/v2/" target="_blank" style="color: white; text-decoration: none"><em>jokeapi.dev</em></a>, you can enjoy all the jokes you'd like, one laugh at a time!
         <br>Simply click to generate a joke at random, upvote for the good ones and downvote for the not-so-good ones.
-        <br>If you <em>REALLY</em> like a joke and want to save it for later, go ahead and bookmark it!
+        <br>If you <em>REALLY</em> like a joke and want to save it for later, make sure to create an account and bookmark it for later!
     </h4>
     <div id="category-menu-div">
         <h2 id="category-menu-title">Click Below for a Joke:</h2>
         <p id="category-menu"><span id="Programming" class="catSpan">Programming</span> <span id="Pun" class="catSpan">Puns</span> <span id="Spooky" class="catSpan">Spooky</span> <span id="Christmas" class="catSpan">Christmas</span> <span id="Misc" class="catSpan">Other</span> <span id="Any" class="catSpan">Random</span></p>
     </div>
     <div id="joke-display" class="newSection">
-        <!-- <button class="btn normal-btn" id="new-joke-btn" name="new-joke-btn">Click For a Joke!</button> -->
-        <!-- <p id="joke-category" class="joke-label"><strong>Category: </strong><span id="joke-category-span"></span></p> -->
         <span id="joke-setup" class="joke-label"></span>
         <br><br>
         <span id="joke-punchline" class="joke-label"></span>
@@ -52,20 +50,13 @@
     <div id="submit-form-div" class="newSection">
         <h3 id="submit-form-title">Submit a Joke!</h3>
         <form id="submit-joke">
-            <!-- <h3 id="insert-name" class="submitInput">Author Name: -->
-                <input type="text" class="jokeInput" id="joke-name-input" name="name" placeholder="Your Name" required>
-            <!-- </h3> --><br>
-            <!-- <h3 id="insert-category" class="submitInput">Category: -->
-                <input type="text" class="jokeInput" id="joke-category-input" name="category" placeholder="Joke Category" required>
-            <!-- </h3> --><br>
-            <!-- <h3 id="insert-setup" class="submitInput">Setup: -->
-                <textarea class="jokeInput" id="joke-setup-input" name="setup" placeholder="Joke Setup" rows="2" required></textarea>
-                <!-- <input type="text" id="joke-setup-input" name="setup" placeholder="Joke Setup Here"> -->
-            <!-- </h3> --><br>
-            <!-- <h3 id="insert-punchline" class="submitInput">Punchline: -->
-                <textarea class="jokeInput" id="joke-punchline-input" name="punchline" placeholder="Joke Punchline" rows="2" required></textarea>
-                <!-- <input type="text" rows="4" id="joke-punchline-input" name="punchline" placeholder="Your Punchline Here"> -->
-            <!-- </h3> -->
+            <input type="text" class="jokeInput" id="joke-name-input" name="name" placeholder="Your Name" required>
+            <br>
+            <input type="text" class="jokeInput" id="joke-category-input" name="category" placeholder="Joke Category" required>
+            <br>
+            <textarea class="jokeInput" id="joke-setup-input" name="setup" placeholder="Joke Setup" rows="2" required></textarea>
+            <br>
+            <textarea class="jokeInput" id="joke-punchline-input" name="punchline" placeholder="Joke Punchline" rows="2" required></textarea>
             <br>
             <button type="submit" id="submit-joke-btn" class="btn normal-btn" name="submit-joke">Submit Joke</button>
         </form>

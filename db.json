@@ -1,229 +1,4 @@
 {
-  "bookmarkedJokes": [
-    {
-      "category": "Programming",
-      "setup": "Why did the programmer jump on the table?",
-      "delivery": "Because debug was on his screen.",
-      "id": 1
-    },
-    {
-      "category": "Spooky",
-      "setup": "What's it like to be kissed by a vampire?",
-      "delivery": "It's a pain in the neck.",
-      "id": 2
-    },
-    {
-      "category": "Pun",
-      "setup": "What kind of doctor is Dr. Pepper?",
-      "delivery": "He's a fizzician.",
-      "id": 3
-    },
-    {
-      "category": "Pun",
-      "setup": "I was feeling depressed, my wife put her hand on my back and said \"Earth.\"",
-      "delivery": "It meant the world to me.",
-      "id": 4
-    },
-    {
-      "category": "Programming",
-      "setup": "What do you call a developer who doesn't comment code?",
-      "delivery": "A developer.",
-      "id": 5
-    },
-    {
-      "category": "Programming",
-      "setup": "So what's a set of predefined steps the government might take to preserve the environment?",
-      "delivery": "An Al-Gore-ithm.",
-      "id": 6
-    },
-    {
-      "category": "Programming",
-      "setup": "What do you call a developer who doesn't comment code?",
-      "delivery": "A developer.",
-      "id": 7
-    },
-    {
-      "category": "Spooky",
-      "setup": "What does a turkey dress up as for Halloween?",
-      "delivery": "A gobblin'!",
-      "id": 8
-    },
-    {
-      "category": "Programming",
-      "setup": "Why do programmers confuse Halloween and Christmas?",
-      "delivery": "Because Oct 31 = Dec 25",
-      "destination": "bookmarkedJokes",
-      "id": 9
-    },
-    {
-      "category": "Programming",
-      "setup": "Why are Assembly programmers always soaking wet?",
-      "delivery": "They work below C-level.",
-      "destination": "bookmarkedJokes",
-      "id": 10
-    },
-    {
-      "category": "Pun",
-      "setup": "Thank you student loans for getting me through college.",
-      "delivery": "I don't think I'll ever be able to repay you.",
-      "destination": "bookmarkedJokes",
-      "id": 11
-    },
-    {
-      "category": "",
-      "setup": "",
-      "delivery": "",
-      "destination": "bookmarkedJokes",
-      "id": 12
-    },
-    {
-      "category": "",
-      "setup": "",
-      "delivery": "",
-      "destination": "bookmarkedJokes",
-      "id": 13
-    },
-    {
-      "category": "",
-      "setup": "",
-      "delivery": "",
-      "destination": "bookmarkedJokes",
-      "id": 14
-    },
-    {
-      "category": "",
-      "setup": "",
-      "delivery": "",
-      "destination": "bookmarkedJokes",
-      "id": 15
-    },
-    {
-      "category": "",
-      "setup": "",
-      "delivery": "",
-      "destination": "bookmarkedJokes",
-      "id": 16
-    },
-    {
-      "category": "Programming",
-      "setup": "What is a dying programmer's last program?",
-      "delivery": "Goodbye, world!",
-      "destination": "bookmarkedJokes",
-      "id": 17
-    },
-    {
-      "category": "Programming",
-      "setup": "Why do programmers confuse Halloween and Christmas?",
-      "delivery": "Because Oct 31 = Dec 25",
-      "destination": "bookmarkedJokes",
-      "id": 18
-    },
-    {
-      "category": "Christmas",
-      "setup": "Why couldn't the skeleton go to the Christmas party?",
-      "delivery": "Because he had no body to go with!",
-      "destination": "bookmarkedJokes",
-      "id": 19
-    },
-    {
-      "category": "Programming",
-      "setup": "Hey baby I wish your name was asynchronous...",
-      "delivery": "... so you'd give me a callback.",
-      "destination": "bookmarkedJokes",
-      "id": 20
-    },
-    {
-      "category": "Pun",
-      "setup": "Why should you never talk to pi?",
-      "delivery": "Because it will go on forever.",
-      "destination": "bookmarkedJokes",
-      "id": 21
-    },
-    {
-      "category": "Pun",
-      "setup": "What did the cell say when his sister cell stepped on his foot?",
-      "delivery": "Mitosis.",
-      "destination": "bookmarkedJokes",
-      "id": 22
-    },
-    {
-      "category": "Misc",
-      "setup": "\"99.9% of the people are dumb!\"",
-      "delivery": "\"Fortunately I belong to the remaining 1%\"",
-      "destination": "bookmarkedJokes",
-      "id": 23
-    },
-    {
-      "category": "Pun",
-      "setup": "I stayed up all night wondering where the sun went.",
-      "delivery": "Then it dawned on me.",
-      "destination": "bookmarkedJokes",
-      "id": 24
-    },
-    {
-      "category": "Pun",
-      "setup": "I just saw my wife trip over and drop a basket full of ironed clothes.",
-      "delivery": "I watched it all unfold.",
-      "destination": "bookmarkedJokes",
-      "id": 25
-    },
-    {
-      "category": "Programming",
-      "setup": "Why do Java programmers hate communism?",
-      "delivery": "They don't want to live in a classless society.",
-      "destination": "bookmarkedJokes",
-      "id": 26
-    },
-    {
-      "category": "Pun",
-      "setup": "What do you call a deer with no eyes?",
-      "delivery": "No eye deer.",
-      "destination": "bookmarkedJokes",
-      "id": 27
-    },
-    {
-      "category": "Pun",
-      "setup": "The gas Argon walks into a bar.\nThe barkeeper says \"What would you like to drink?\"",
-      "delivery": "But Argon doesn't react.",
-      "destination": "bookmarkedJokes",
-      "id": 28
-    },
-    {
-      "category": "Pun",
-      "setup": "What do you call a caveman's fart?",
-      "delivery": "A blast from the past.",
-      "destination": "bookmarkedJokes",
-      "id": 29
-    },
-    {
-      "category": "Spooky",
-      "setup": "Why did the ghost go inside the bar?",
-      "delivery": "For the boos.",
-      "destination": "bookmarkedJokes",
-      "id": 30
-    },
-    {
-      "category": "Christmas",
-      "setup": "Who is Santa's favourite singer?",
-      "delivery": "Elf-is Presley!",
-      "destination": "bookmarkedJokes",
-      "id": 31
-    },
-    {
-      "category": "Spooky",
-      "setup": "Why do ghosts go on diets?",
-      "delivery": "So they can keep their ghoulish figures.",
-      "destination": "bookmarkedJokes",
-      "id": 32
-    },
-    {
-      "category": "Spooky",
-      "setup": "Why didn't the skeleton go for prom?",
-      "delivery": "Because it had nobody.",
-      "destination": "bookmarkedJokes",
-      "id": 33
-    }
-  ],
   "userJokes": [
     {
       "name": "Connor",
@@ -279,46 +54,16 @@
       "delivery": "booo hooo waaaaaa",
       "destination": "userJokes",
       "id": 7
-    },
-    {
-      "name": "",
-      "category": "",
-      "setup": "",
-      "delivery": "",
-      "destination": "userJokes",
-      "id": 8
     }
   ],
   "likeCounter": [
     {
       "id": 1,
       "destination": "likeCounter",
-      "total": "38"
+      "total": "46"
     }
   ],
   "users": [
-    {
-      "userName": "please work",
-      "password": "isaidplease",
-      "bookmarks": [
-        {
-          "category": "Christmas",
-          "setup": "Whats the Grinchs least favorite band?",
-          "delivery": "The Who."
-        },
-        {
-          "category": "Spooky",
-          "setup": "What is in a ghost's nose?",
-          "delivery": "Boo-gers."
-        },
-        {
-          "category": "Programming",
-          "setup": "Why did the JavaScript heap close shop?",
-          "delivery": "It ran out of memory."
-        }
-      ],
-      "id": 23
-    },
     {
       "userName": "new_account",
       "password": "maybewereworking",
@@ -332,21 +77,36 @@
       "id": 24
     },
     {
-      "userName": "test",
-      "password": "123",
+      "userName": "Connor",
+      "password": "imconnor",
       "bookmarks": [
         {
-          "category": "Christmas",
-          "setup": "Why couldn't the skeleton go to the Christmas party?",
-          "delivery": "Because he had no body to go with!"
+          "category": "Programming",
+          "setup": "What do you call a group of 8 Hobbits?",
+          "delivery": "A Hobbyte."
         },
         {
           "category": "Programming",
-          "setup": "How do you generate a random string?",
-          "delivery": "Put a Windows user in front of Vim and tell them to exit."
+          "setup": "Why do Java programmers hate communism?",
+          "delivery": "They don't want to live in a classless society."
+        },
+        {
+          "category": "Pun",
+          "setup": "To prove he was right, the flat-earther walked to the end of the Earth.",
+          "delivery": "He eventually came around."
+        },
+        {
+          "category": "Programming",
+          "setup": "What do you get if you lock a monkey in a room with a typewriter for 8 hours?",
+          "delivery": "A regular expression."
+        },
+        {
+          "category": "Programming",
+          "setup": "why do python programmers wear glasses?",
+          "delivery": "Because they can't C."
         }
       ],
-      "id": 25
+      "id": 26
     }
   ]
 }
